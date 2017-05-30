@@ -250,10 +250,14 @@ def paradigms(data, index, **kwargs):
     #                            input_shape=(P.maxlen, P.C)))
 
     context_input = Input(shape=(P.maxlen, P.C))
-    context = pipe(context_input, Masking(mask_value=0), TimeDistributed(Dense(kwargs['d_context'], activation='linear')))
+    context = pipe(context_input, 
+                   Masking(mask_value=0), 
+                   TimeDistributed(Dense(kwargs['d_context'], activation='linear')))
 
     merged = Concatenate()([cell, context])
-    rnn = pipe(merged, LSTM(kwargs['d_rnn']), Dense(P.C, activation='softmax'))
+    rnn = pipe(merged, 
+               LSTM(kwargs['d_rnn'], unroll=True,implementation=2), 
+               Dense(P.C, activation='softmax'))
 
     #model = Sequential()
     #model.add(Concatenate(axis=-1)([cell, context], input_shape=(P.maxlen, P.C+P.M)))
