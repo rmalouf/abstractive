@@ -19,12 +19,14 @@ import numpy as np
 #from keras.layers.merge import Concatenate
 #from keras.layers.wrappers import TimeDistributed
 #from keras.layers.recurrent import LSTM
-#from keras.utils.generic_utils import Progbar
+from keras.utils.generic_utils import Progbar
 
 from keras.models import Model
-from keras.layers import Input, Dense, RepeatVector, TimeDistributed, Masking
-from keras.layers.merge import Concatenate
+from keras.layers import Input, Dense, RepeatVector, TimeDistributed, Masking, Bidirectional
+from keras.layers.merge import Concatenate, Multiply
 from keras.layers.recurrent import LSTM
+from keras import backend as K
+
 
 class Paradigms(object):
 
@@ -223,7 +225,15 @@ def baseline(train, test):
         total += 1
 
     return correct/total * 100.
-    
+
+class M(Masking):
+    def call(self, inputs):
+        boolean_mask = K.all(K.not_equal(inputs, self.mask_value),
+                             axis=-1, keepdims=True)
+        return inputs * K.cast(boolean_mask, K.floatx())
+
+
+
 def paradigms(data, index, **kwargs):
 
 
@@ -238,33 +248,18 @@ def paradigms(data, index, **kwargs):
     print('** Compile model')
 
     cell_input = Input(shape=(P.M,))
-    #cell = RepeatVector(P.maxlen)(Dense(kwargs['d_dense'], activation='linear')(cell_input))
-    cell = pipe(cell_input, Dense(kwargs['d_dense'], activation='linear'), RepeatVector(P.maxlen))
-
-    #cell = Sequential()
-    #cell.add(Dense(kwargs['d_dense'], input_dim=P.M, activation='linear'))
-    #cell.add(RepeatVector(P.maxlen))
-    
-    #context = Sequential()
-    #context.add(TimeDistributed(Dense(kwargs['d_context'], activation='linear'),
-    #                            input_shape=(P.maxlen, P.C)))
+    cell = pipe(cell_input,
+                Dense(kwargs['d_dense'], activation='linear'),
+                RepeatVector(P.maxlen))
 
     context_input = Input(shape=(P.maxlen, P.C))
-    context = pipe(context_input, 
-                   Masking(mask_value=0), 
+    context = pipe(context_input,
                    TimeDistributed(Dense(kwargs['d_context'], activation='linear')))
 
     merged = Concatenate()([cell, context])
-    rnn = pipe(merged, 
-               LSTM(kwargs['d_rnn'], unroll=True,implementation=2), 
+    rnn = pipe(merged,
+               LSTM(kwargs['d_rnn'], return_sequences=False, unroll=True, implementation=2),
                Dense(P.C, activation='softmax'))
-
-    #model = Sequential()
-    #model.add(Concatenate(axis=-1)([cell, context], input_shape=(P.maxlen, P.C+P.M)))
-    #for _ in range(kwargs['n_rnn']-1):
-    #    model.add(LSTM(kwargs['d_rnn'], unroll=True, return_sequences=True))
-    #model.add(LSTM(kwargs['d_rnn'], unroll=True, return_sequences=False))
-    #model.add(Dense(P.C, activation='softmax'))
 
     model = Model(inputs=[cell_input, context_input], outputs=[rnn])
     model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
@@ -285,9 +280,8 @@ def paradigms(data, index, **kwargs):
             v = 1
         else:
             v = 2
-        fit = model.fit_generator(P.generator(train, batch_size=kwargs['batch_size']), 
-                                    P.N(train), epochs=kwargs['epochs'], verbose=v)
-
+        fit = model.fit_generator(P.generator(train, batch_size=kwargs['batch_size']),
+                                  P.N(train), epochs=kwargs['epochs'], verbose=v)
 
     if kwargs['saveWeights']:
         print('** Save weights to', kwargs['saveWeights'])
