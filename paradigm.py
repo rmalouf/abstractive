@@ -60,14 +60,17 @@ class Paradigms(object):
             data = data.sample(frac=1)
 
             for form, lex, feat in data.itertuples(index=False):
+                form = np.array([self.char_encode[c] for c in form])
+                
                 for j in range(len(form)-1):
 
                     x1[i, self.lexeme[lex]] = 1
                     x1[i, self.features[feat]] = 1
                     p = self.maxlen-(j+1)
-                    for k,c in enumerate(form[:j+1]):
-                        x2[i, p+k, self.char_encode[c]] = 1
-                    y[i, self.char_encode[form[j+1]]] = 1
+                    #for k,c in enumerate(form[:j+1]):
+                    #    x2[i, p+k, c] = 1
+                    x2[i, range(p,p+j+1), form[:j+1]] = 1
+                    y[i, form[j+1]] = 1
 
                     i += 1
                 
@@ -281,7 +284,7 @@ def paradigms(data, index, **kwargs):
         else:
             v = 2
         fit = model.fit_generator(P.generator(train, batch_size=kwargs['batch_size']),
-                                  P.N(train), epochs=kwargs['epochs'], verbose=v)
+                                  P.N(train), epochs=kwargs['epochs'], verbose=v, pickle_safe=True)
 
     if kwargs['saveWeights']:
         print('** Save weights to', kwargs['saveWeights'])
