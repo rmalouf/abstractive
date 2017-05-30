@@ -22,8 +22,8 @@ import numpy as np
 from keras.utils.generic_utils import Progbar
 
 from keras.models import Model
-from keras.layers import Input, Dense, RepeatVector, TimeDistributed, Masking, Bidirectional
-from keras.layers.merge import Concatenate, Multiply
+from keras.layers import Input, Dense, RepeatVector, TimeDistributed, Masking, Bidirectional, Merge
+#from keras.layers.merge import Concatenate, Multiply
 from keras.layers.recurrent import LSTM
 from keras import backend as K
 
@@ -61,7 +61,7 @@ class Paradigms(object):
 
             for form, lex, feat in data.itertuples(index=False):
                 form = np.array([self.char_encode[c] for c in form])
-                
+
                 for j in range(len(form)-1):
 
                     x1[i, self.lexeme[lex]] = 1
@@ -259,12 +259,14 @@ def paradigms(data, index, **kwargs):
     context = pipe(context_input,
                    TimeDistributed(Dense(kwargs['d_context'], activation='linear')))
 
-    merged = Concatenate()([cell, context])
+    #merged = Concatenate()([cell, context])
+    merged = Merge(mode='concat')([cell, context])
     rnn = pipe(merged,
-               LSTM(kwargs['d_rnn'], return_sequences=False, unroll=True, implementation=2),
+               #LSTM(kwargs['d_rnn'], return_sequences=False, unroll=True, implementation=2),
+               LSTM(kwargs['d_rnn'], return_sequences=False, unroll=True),
                Dense(P.C, activation='softmax'))
 
-    model = Model(inputs=[cell_input, context_input], outputs=[rnn])
+    model = Model(input=[cell_input, context_input], output=[rnn])
     model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
     if kwargs['saveModel']:
@@ -284,7 +286,7 @@ def paradigms(data, index, **kwargs):
         else:
             v = 2
         fit = model.fit_generator(P.generator(train, batch_size=kwargs['batch_size']),
-                                  P.N(train), epochs=kwargs['epochs'], verbose=v, pickle_safe=True)
+                                  P.N(train), nb_epoch=kwargs['epochs'], verbose=v, pickle_safe=True)
 
     if kwargs['saveWeights']:
         print('** Save weights to', kwargs['saveWeights'])
