@@ -230,7 +230,7 @@ def baseline(train, test):
     return correct/total * 100.
 
 class M(Masking):
-    def call(self, inputs):
+    def call(self, inputs, mask=None):
         boolean_mask = K.all(K.not_equal(inputs, self.mask_value),
                              axis=-1, keepdims=True)
         return inputs * K.cast(boolean_mask, K.floatx())
@@ -262,7 +262,6 @@ def paradigms(data, index, **kwargs):
     #merged = Concatenate()([cell, context])
     merged = Merge(mode='concat')([cell, context])
     rnn = pipe(merged,
-               #LSTM(kwargs['d_rnn'], return_sequences=False, unroll=True, implementation=2),
                LSTM(kwargs['d_rnn'], return_sequences=False, unroll=True),
                Dense(P.C, activation='softmax'))
 
