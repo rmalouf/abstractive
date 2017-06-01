@@ -204,7 +204,7 @@ allprules, allsrules = defaultdict(lambda: defaultdict(int)), defaultdict(lambda
 
 def baseline(data, index, **kwargs):
 
-    #global prefbias, suffbias
+    global prefbias, suffbias
 
     train = data[~index]
     test = data[index]

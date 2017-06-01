@@ -298,7 +298,7 @@ if __name__ == '__main__':
                    help='Segments in input forms separated by spaces')
 
     data = parser.add_argument_group('data', description='xx')
-    data.add_argument('--train', metavar='P', type=float, default=1.0,
+    data.add_argument('--train', metavar='P', type=float, 
                    help='Fraction of data to use for training')
     data.add_argument('--cv', metavar='K', type=int, default=0,
                    help='Perform k-fold cross validation')
@@ -354,13 +354,18 @@ if __name__ == '__main__':
 
     if args['cv']:
         index = np.random.randint(1, args['cv']+1, len(data))
+        for k in range(1, max(index)+1):
+            print('** Start run', k)
+            args['score'] = paradigms(data, index==k, **args)
+            args['baseline'] = baseline(baseline_data, index==k, **args)
     elif args['train']:
         index = np.array([np.random.random() > float(args['train']) for i in range(len(data))], dtype=np.bool)
+        args['score'] = paradigms(data, index, **args)
+        args['baseline'] = baseline(baseline_data, index, **args)
     else:
-        index = np.zeros((len(data)), dtype=np.int)
+        index = np.zeros((len(data)), dtype=np.bool)
+        args['score'] = paradigms(data, index, **args)
+        args['baseline'] = 1.0
 
-    for k in range(1, max(index)+1):
-        print('** Start run', k)
-        args['score'] = paradigms(data, index==k, **args)
-        args['baseline'] = baseline(baseline_data, index==k, **args)
-        print(args)
+    print(args)
+
