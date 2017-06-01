@@ -282,7 +282,7 @@ def paradigms(data, index, **kwargs):
         return score
     else:
         print('*** Elapsed time:', timedelta(seconds=time.time()-t0))
-        return None
+        return 1.0
 
 if __name__ == '__main__':
 
@@ -298,7 +298,7 @@ if __name__ == '__main__':
                    help='Segments in input forms separated by spaces')
 
     data = parser.add_argument_group('data', description='xx')
-    data.add_argument('--train', metavar='P', type=float, 
+    data.add_argument('--train', metavar='P', type=float,
                    help='Fraction of data to use for training')
     data.add_argument('--cv', metavar='K', type=int, default=0,
                    help='Perform k-fold cross validation')
@@ -358,14 +358,17 @@ if __name__ == '__main__':
             print('** Start run', k)
             args['score'] = paradigms(data, index==k, **args)
             args['baseline'] = baseline(baseline_data, index==k, **args)
+            print(args)
     elif args['train']:
         index = np.array([np.random.random() > float(args['train']) for i in range(len(data))], dtype=np.bool)
         args['score'] = paradigms(data, index, **args)
         args['baseline'] = baseline(baseline_data, index, **args)
+        print(args)
     else:
         index = np.zeros((len(data)), dtype=np.bool)
         args['score'] = paradigms(data, index, **args)
         args['baseline'] = 1.0
+        print(args)
 
-    print(args)
+
 
