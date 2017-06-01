@@ -209,7 +209,7 @@ def baseline(data, index, **kwargs):
     train = data[~index]
     test = data[index]
 
-   with Pool() as p:
+    with Pool() as p:
 
         for pre, suf in p.imap_unordered(check_bias, train.itertuples(name=None)):
             prefbias = prefbias + pre
