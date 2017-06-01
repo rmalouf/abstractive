@@ -2,9 +2,8 @@
 
 # Learn paradigm functions
 
-import time, sys, json, argparse
+import time, argparse
 from collections import defaultdict, Counter, namedtuple
-from operator import itemgetter
 from functools import reduce
 from datetime import timedelta
 
@@ -14,25 +13,17 @@ import regex as re
 import pandas as pd
 import numpy as np
 
-#from keras.models import Sequential, model_from_json
-#from keras.layers.core import Dense, RepeatVector
-#from keras.layers.merge import Concatenate
-#from keras.layers.wrappers import TimeDistributed
-#from keras.layers.recurrent import LSTM
-from keras.utils.generic_utils import Progbar
-
 from keras.models import Model
-from keras.layers import Input, Dense, RepeatVector, TimeDistributed, Masking, Bidirectional, Merge
-#from keras.layers.merge import Concatenate, Multiply
-from keras.layers.recurrent import LSTM
-from keras import backend as K
-
+from keras.layers import Input, Dense, RepeatVector, TimeDistributed, Merge
+from keras.layers.recurrent import LSTM, GRU
+from keras.utils.generic_utils import Progbar
+from keras.callbacks import EarlyStopping
 
 class Paradigms(object):
 
     def __init__(self, data):
 
-        self.maxlen = max(len(f) for f in data['form'])
+        self.maxlen = max(len(f) for f in data['form']) - 1
 
         self.charset = sorted(reduce(set.union, map(set, data['form'])))
         self.char_decode = dict(enumerate(self.charset))
@@ -45,7 +36,7 @@ class Paradigms(object):
         self.C = len(self.charset)
 
     def N(self, data):
-        """Number of items to be predicted in a dataset (first char of each form is always given)."""
+        """Number of items to be predicted in a dataset (first char of each form is always known)."""
         return sum(len(f)-1 for f in data['form'])
 
     def generator(self, data, batch_size):
@@ -67,9 +58,7 @@ class Paradigms(object):
                     x1[i, self.lexeme[lex]] = 1
                     x1[i, self.features[feat]] = 1
                     p = self.maxlen-(j+1)
-                    #for k,c in enumerate(form[:j+1]):
-                    #    x2[i, p+k, c] = 1
-                    x2[i, range(p,p+j+1), form[:j+1]] = 1
+                    x2[i, range(p, self.maxlen), form[:j+1]] = 1
                     y[i, form[j+1]] = 1
 
                     i += 1
@@ -229,14 +218,6 @@ def baseline(train, test):
 
     return correct/total * 100.
 
-class M(Masking):
-    def call(self, inputs, mask=None):
-        boolean_mask = K.all(K.not_equal(inputs, self.mask_value),
-                             axis=-1, keepdims=True)
-        return inputs * K.cast(boolean_mask, K.floatx())
-
-
-
 def paradigms(data, index, **kwargs):
 
 
@@ -259,10 +240,9 @@ def paradigms(data, index, **kwargs):
     context = pipe(context_input,
                    TimeDistributed(Dense(kwargs['d_context'], activation='linear')))
 
-    #merged = Concatenate()([cell, context])
     merged = Merge(mode='concat')([cell, context])
     rnn = pipe(merged,
-               LSTM(kwargs['d_rnn'], return_sequences=False, unroll=True),
+               LSTM(kwargs['d_rnn'], return_sequences=False, unroll=True, consume_less='gpu', dropout_U=kwargs['dropout']),
                Dense(P.C, activation='softmax'))
 
     model = Model(input=[cell_input, context_input], output=[rnn])
@@ -285,12 +265,12 @@ def paradigms(data, index, **kwargs):
         else:
             v = 2
         fit = model.fit_generator(P.generator(train, batch_size=kwargs['batch_size']),
-                                  P.N(train), nb_epoch=kwargs['epochs'], verbose=v, pickle_safe=True)
+                                  P.N(train), nb_epoch=kwargs['epochs'], verbose=v, pickle_safe=True,
+                                  callbacks=[EarlyStopping(monitor='loss', patience=5)])
 
     if kwargs['saveWeights']:
         print('** Save weights to', kwargs['saveWeights'])
         model.save_weights(kwargs['saveWeights'], overwrite=True)
-
 
     # evaluation by beam search
 
@@ -334,11 +314,13 @@ if __name__ == '__main__':
     model.add_argument('--d_dense', metavar='N', type=int, default=128,
                    help='size of dense layer')
     model.add_argument('--d_rnn', metavar='N', type=int, default=256,
-                   help='size of recurrent layers')
-    model.add_argument('--n_rnn', metavar='N', type=int, default=1,
-                   help='number of recurrent layers')
-    model.add_argument('--rnn', metavar='TYPE', choices=['SRN', 'LSTM'], default='LSTM',
-                   help='type of recurrent layers (SRN or LSTM)')
+                   help='size of recurrent layer')
+    model.add_argument('--dropout', metavar='P', type=float, default=0.0,
+                       help='dropout percentage for recurrent layer')
+    #model.add_argument('--n_rnn', metavar='N', type=int, default=1,
+    #               help='number of recurrent layers')
+    #model.add_argument('--rnn', metavar='TYPE', choices=['SRN', 'LSTM'], default='LSTM',
+    #               help='type of recurrent layers (SRN or LSTM)')
 
     train = parser.add_argument_group('training hyperparameters', description='xx')
     train.add_argument('--epochs', metavar='N', type=int, default=15,
