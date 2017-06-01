@@ -15,6 +15,7 @@ z = zipfile.ZipFile(io.BytesIO(r.content))
 data = pd.read_csv(io.BytesIO(z.read('data/vlexique.csv')), header=None, na_values=['#DEF#', '#DEF'])
 del data[1]
 data = data.rename(columns={0:'lexeme'})
+data = data[data['lexeme'] != 'lexeme']
 
 # Label columns
 
