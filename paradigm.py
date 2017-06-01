@@ -15,9 +15,11 @@ import numpy as np
 
 from keras.models import Model
 from keras.layers import Input, Dense, RepeatVector, TimeDistributed, Merge
-from keras.layers.recurrent import LSTM, GRU
+from keras.layers.recurrent import LSTM
 from keras.utils.generic_utils import Progbar
 from keras.callbacks import EarlyStopping
+
+from baseline import baseline
 
 class Paradigms(object):
 
@@ -175,7 +177,7 @@ class Paradigms(object):
         
         score = corr/total*100.
 
-        print(elap,time.time()-start-elap)
+        #print(elap,time.time()-start-elap)
         
         if return_errors:
             return wrong
@@ -200,7 +202,7 @@ def rindex(alist, value):
         result = alist
     return result
 
-def baseline(train, test):
+def x_baseline(train, test):
 
     forms = defaultdict(Counter)
     for form, lex, feat in train.itertuples(index=False):
@@ -276,12 +278,11 @@ def paradigms(data, index, **kwargs):
 
     if len(test) > 0:
         score = P.eval(model, test, **kwargs)
-        base = baseline(train, test)
         print('*** Elapsed time:', timedelta(seconds=time.time()-t0))
-        return base, score
+        return score
     else:
         print('*** Elapsed time:', timedelta(seconds=time.time()-t0))
-        return None, None
+        return None
 
 if __name__ == '__main__':
 
@@ -336,20 +337,30 @@ if __name__ == '__main__':
     print('** Read data', args['datafile'])
 
     data = pd.read_csv(args['datafile'], sep='\t', names=['form', 'lexeme', 'features'])
+    baseline_data = data.copy()
     if args['spaces']:
         data['form'] = [['<'] + f.split(' ') + ['>'] for f in data['form']]
+        baseline_data['form'] = [f.split(' ') for f in baseline_data['form']]
+        baseline_data['lexeme'] = [f.split(' ') for f in baseline_data['lexeme']]
     else:
         data['form'] = [['<'] + re.findall(r'\X', f) + ['>'] for f in data['form']]
+        baseline_data['form'] = [re.findall(r'\X', f) for f in baseline_data['form']]
+        baseline_data['lexeme'] = [re.findall(r'\X', f) for f in baseline_data['lexeme']]
+
+    #if args['spaces']:
+    #    data['form'] = [['<'] + f.split(' ') + ['>'] for f in data['form']]
+    #else:
+    #    data['form'] = [['<'] + re.findall(r'\X', f) + ['>'] for f in data['form']]
 
     if args['cv']:
         index = np.random.randint(1, args['cv']+1, len(data))
     elif args['train']:
-        index = np.array([np.random.random() > float(args['train']) for i in range(len(data))], dtype=np.int)
+        index = np.array([np.random.random() > float(args['train']) for i in range(len(data))], dtype=np.bool)
     else:
         index = np.zeros((len(data)), dtype=np.int)
 
     for k in range(1, max(index)+1):
         print('** Start run', k)
-        print(len(data), sum(index==k))
-        args['baseline'], args['score'] = paradigms(data, index==k, **args)
+        args['score'] = paradigms(data, index==k, **args)
+        args['baseline'] = baseline(baseline_data, index==k, **args)
         print(args)
