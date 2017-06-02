@@ -17,14 +17,16 @@ for datafile in glob('data/*.dat.gz'):
         charset =  set(concat(f.split(' ') for f in data['form']))
     else:
         charset =  set(concat(re.findall(r'\X', f) for f in data['form']))
+    maxlen = max(len(f) for f in data['form']) + 1
     row = {'datafile':datafile,
             'n_forms':len(data),
             'n_lexemes': len(pd.unique(data['lexeme'])),
             'n_cells': len(pd.unique(data['features'])),
+            'maxlen': maxlen,
             'n_chars': len(charset)}
     table1.append(row)
 table1 = pd.DataFrame(sorted(table1, key=lambda d:d['datafile']))
-table1 = table1[['datafile', 'n_chars', 'n_cells', 'n_lexemes', 'n_forms']]
+table1 = table1[['datafile', 'n_chars', 'maxlen', 'n_cells', 'n_lexemes', 'n_forms']]
 print(table1.to_latex(index=False))
 
 ## table 2 : experimental results
