@@ -36,6 +36,10 @@ cols[50] = 'pst,ptcp.f.sg'
 cols[51] = 'pst,ptcp.f.pl'
 data.columns = cols
 
+#
+
+data['lexeme'] = data['inf']
+
 # Save
 
 data = pd.melt(data, id_vars='lexeme', var_name='features', value_name='form')
