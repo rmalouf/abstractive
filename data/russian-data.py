@@ -29,7 +29,14 @@ for line in r.content.decode().splitlines():
             data.append({'form':form, 'lexeme':lexeme, 'features':feats})
 
 data = pd.DataFrame(data, columns=['form', 'lexeme', 'features'])
-data.to_csv('russian.dat.gz', compression='gzip', header=None, sep='\t', 
+
+lemmas = dict((lex,lex) for lex in data['lexeme'])
+for row in data[data['features']=='sg nom'].itertuples():
+    lemmas[row.lexeme] = row.form
+data['lexeme'] = [lemmas[lex] for lex in data['lexeme']]
+
+
+data.to_csv('russian.dat.gz', compression='gzip', header=None, sep='\t',
                 columns=['form', 'lexeme', 'features'], index=False)
 
             
