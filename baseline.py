@@ -178,6 +178,7 @@ def apply_rules(row):
 
     del base[0]
     del base[-1]
+    #print(''.join(form), ''.join(base))
     return (base == form)
 
 def numleadingsyms(s, symbol):
@@ -199,22 +200,20 @@ def check_bias(row):
 
 ###############################################################################
 
-prefbias, suffbias = 0, 0
-allprules, allsrules = defaultdict(lambda: defaultdict(int)), defaultdict(lambda: defaultdict(int))
-
 def baseline(data, index, **kwargs):
 
-    global prefbias, suffbias
+    global prefbias, suffbias, allprules, allsrules
 
     train = data[~index]
     test = data[index]
 
+    prefbias, suffbias = 0, 0
     with Pool() as p:
-
         for pre, suf in p.imap_unordered(check_bias, train.itertuples(name=None)):
             prefbias = prefbias + pre
             suffbias = suffbias + suf
 
+    allprules, allsrules = defaultdict(lambda: defaultdict(int)), defaultdict(lambda: defaultdict(int))
     with Pool() as p:
         for msd, prules, srules in p.imap_unordered(get_rules, train.itertuples(name=None)):
             for r in prules:
