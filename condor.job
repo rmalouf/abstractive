@@ -21,7 +21,7 @@ queue
 arguments = "data/irish.dat.gz --spaces --d_dense=256 --d_context=4 --d_rnn=256 --epochs=100 --cv=10 --dropout=0.2"
 queue
 
-arguments = "chinantec.csv --d_dense=100 --d_context=8 --d_rnn=400 --epochs=30 --cv=10 --dropout=0.2"
+arguments = "data/chinantec.dat.gz --d_dense=256 --d_context=4 --d_rnn=256 --epochs=100 --cv=10 --dropout=0.2"
 queue
 
 arguments = "data/khaling.dat.gz --d_dense=256 --d_context=4 --d_rnn=256 --epochs=100 --cv=10 --dropout=0.2"
