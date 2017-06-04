@@ -18,6 +18,7 @@ with gzip.open('maltese.txt.gz', 'rt') as f:
             data.append({'form':form, 'lexeme':lexeme, 'features':features})
 
 data = pd.DataFrame(data, columns=['form', 'lexeme', 'features'])
+data['lemma'] = data['lexeme']
 data = data.drop_duplicates(subset=['lexeme','features'], keep='last')
 data.to_csv('maltese.dat.gz', compression='gzip', header=None, sep='\t', 
-                columns=['form', 'lexeme', 'features'], index=False)
+                columns=['form', 'lexeme', 'features', 'lemma'], index=False)

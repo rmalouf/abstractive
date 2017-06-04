@@ -119,11 +119,11 @@ def get_rules(row):
     #global prefbias, suffbias, allprules, allsrules
 
     if prefbias > suffbias:
-        lemma = list(reversed(row[2]))
-        form = list(reversed(row[1]))
+        lemma = list(reversed(row[3]))
+        form = list(reversed(row[0]))
     else:
-        lemma = row[2]
-        form = row[1]
+        lemma = row[3]
+        form = row[0]
 
     lp, lr, ls, fp, fr, fs = alignprs(lemma, form)  # Get six parts, three for in three for out
 
@@ -144,7 +144,7 @@ def get_rules(row):
             prules.add((tuple(inp + fr[:i]), tuple(outp + fr[:i])))
             prules = {(tuple(remove(x[0], '_')), tuple(remove(x[1], '_'))) for x in prules}
 
-    return row[3], prules, srules
+    return row[2], prules, srules
 
 def apply_rules(row):
     """Applies the longest-matching suffix-changing rule given an input
@@ -152,12 +152,12 @@ def apply_rules(row):
     For prefix-changing rules, only the most frequent rule is chosen."""
 
     if prefbias > suffbias:
-        lemma = list(reversed(row[2]))
-        form = list(reversed(row[1]))
+        lemma = list(reversed(row[3]))
+        form = list(reversed(row[0]))
     else:
-        lemma = row[2]
-        form = row[1]
-    msd = row[3]
+        lemma = row[3]
+        form = row[0]
+    msd = row[2]
     if msd not in allprules and msd not in allsrules:
         return lemma == form  # Haven't seen this inflection, so bail out
 
@@ -170,7 +170,6 @@ def apply_rules(row):
             base[-len(bestrule[0]):] = list(bestrule[1])
 
     if msd in allprules:
-        #applicablerules = [(x[0], x[1], y) for x, y in allprules[msd].items() if contains(base, x[0])]
         applicablerules = [(x[0], x[1], y) for x, y in allprules[msd].items() if base[:len(x[0])] == list(x[0])]
         if applicablerules:
             bestrule = max(applicablerules, key=lambda x: (x[2]))
@@ -179,6 +178,7 @@ def apply_rules(row):
     del base[0]
     del base[-1]
     #print(''.join(form), ''.join(base))
+    #print(base,form)
     return (base == form)
 
 def numleadingsyms(s, symbol):
@@ -194,7 +194,7 @@ def numtrailingsyms(s, symbol):
     return len(s)
 
 def check_bias(row):
-    aligned = halign(row[2], row[1])
+    aligned = halign(row[0], row[3])
     return (numleadingsyms(aligned[0], '_') + numleadingsyms(aligned[1], '_'),
             numtrailingsyms(aligned[0], '_') + numtrailingsyms(aligned[1], '_'))
 
@@ -209,19 +209,31 @@ def baseline(data, index, **kwargs):
 
     prefbias, suffbias = 0, 0
     with Pool() as p:
-        for pre, suf in p.imap_unordered(check_bias, train.itertuples(name=None)):
+        for pre, suf in p.imap_unordered(check_bias, train.itertuples(index=False, name=None)):
             prefbias = prefbias + pre
             suffbias = suffbias + suf
 
+    #for pre, suf in map(check_bias, train.itertuples(index=False, name=None)):
+    #    prefbias = prefbias + pre
+    #    suffbias = suffbias + suf
+
     allprules, allsrules = defaultdict(lambda: defaultdict(int)), defaultdict(lambda: defaultdict(int))
     with Pool() as p:
-        for msd, prules, srules in p.imap_unordered(get_rules, train.itertuples(name=None)):
+        for msd, prules, srules in p.imap_unordered(get_rules, train.itertuples(index=False, name=None)):
             for r in prules:
                 allprules[msd][(r[0], r[1])] = allprules[msd][(r[0], r[1])] + 1
             for r in srules:
                 allsrules[msd][(r[0], r[1])] = allsrules[msd][(r[0], r[1])] + 1
 
+    #for msd, prules, srules in map(get_rules, train.itertuples(name=None, index=False)):
+    #    for r in prules:
+    #        allprules[msd][(r[0], r[1])] = allprules[msd][(r[0], r[1])] + 1
+    #    for r in srules:
+    #        allsrules[msd][(r[0], r[1])] = allsrules[msd][(r[0], r[1])] + 1
+
     with Pool() as p:
-        results = p.map(apply_rules, test.itertuples(name=None))
+        results = p.map(apply_rules, test.itertuples(index=False, name=None))
+
+#    results = list(map(apply_rules, test.itertuples(name=None, index=False)))
 
     return sum(results)/len(results)*100

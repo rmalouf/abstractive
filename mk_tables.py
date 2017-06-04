@@ -12,7 +12,7 @@ import numpy as np
 
 table1 = [ ]
 for datafile in glob('data/*.dat.gz'):
-    data = pd.read_csv(datafile, sep='\t', names=['form', 'lexeme', 'features'])
+    data = pd.read_csv(datafile, sep='\t', names=['form', 'lexeme', 'features', 'lemma'])
     if 'irish' in datafile:
         charset =  set(concat(f.split(' ') for f in data['form']))
     else:

@@ -5,7 +5,7 @@
 import requests, tarfile, io, re
 import pandas as pd
 
-URL1 = 'https://web.archive.org/web/20140807150829/http://www.csc.fi/tutkimus/alat/kielitiede/taajuussanasto-B9996/download'
+URL1 = 'https://korp.csc.fi/suomen-sanomalehtikielen-taajuussanasto-B9996.txt'
 URL2 = 'http://www.cs.utexas.edu/~gdurrett/data/wiktionary-morphology-1.1.tgz'
 
 words = set()
@@ -22,6 +22,7 @@ data = pd.read_csv(io.BytesIO(z.extractfile('wiktionary-morphology-1.1/inflectio
 data['form'] = data['form'].str.lower()
 data['lexeme'] = data['lexeme'].str.lower()
 data = data[data['lexeme'].isin(words)]
+data['lemma'] = data['lexeme']
 
 data.to_csv('finnish.dat.gz', index=False, header=False,
-            sep='\t', compression='gzip')
+            sep='\t', compression='gzip', columns=['form', 'lexeme', 'features', 'lemma'])

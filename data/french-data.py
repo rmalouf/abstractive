@@ -36,13 +36,10 @@ cols[50] = 'pst,ptcp.f.sg'
 cols[51] = 'pst,ptcp.f.pl'
 data.columns = cols
 
-#
-
-data['lexeme'] = data['inf']
-
 # Save
+data['lemma'] = data['inf']
 
-data = pd.melt(data, id_vars='lexeme', var_name='features', value_name='form')
+data = pd.melt(data, id_vars=['lexeme','lemma'], var_name='features', value_name='form')
 data.dropna(inplace=True)
 data.drop_duplicates(inplace=True)
-data.to_csv('french.dat.gz', compression='gzip', index=False, header=False, sep='\t', columns=['form', 'lexeme', 'features'])
+data.to_csv('french.dat.gz', compression='gzip', index=False, header=False, sep='\t', columns=['form', 'lexeme', 'features', 'lemma'])

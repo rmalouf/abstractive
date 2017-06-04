@@ -33,11 +33,11 @@ data = pd.DataFrame(data, columns=['form', 'lexeme', 'features'])
 lemmas = dict((lex,lex) for lex in data['lexeme'])
 for row in data[data['features']=='sg nom'].itertuples():
     lemmas[row.lexeme] = row.form
-data['lexeme'] = [lemmas[lex] for lex in data['lexeme']]
+data['lemma'] = [lemmas[lex] for lex in data['lexeme']]
 
 
 data.to_csv('russian.dat.gz', compression='gzip', header=None, sep='\t',
-                columns=['form', 'lexeme', 'features'], index=False)
+                columns=['form', 'lexeme', 'features', 'lemma'], index=False)
 
             
                 
