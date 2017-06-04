@@ -18,5 +18,6 @@ data = data[data['pos']=='V']
 del data['pos']
 
 data['form'] = [w.lower() for w in data['form']]
-data.to_csv('khaling.dat.gz', index=False, header=False, 
-            sep='\t', compression='gzip')
+data['lemma'] = data['lexeme']
+data.to_csv('khaling.dat.gz', index=False, header=False,
+            sep='\t', compression='gzip', columns=['form', 'lexeme', 'features', 'lemma'])

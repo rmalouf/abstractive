@@ -2,11 +2,9 @@
 
 # Learn paradigm functions
 
-import time, argparse
+import argparse
 from collections import defaultdict, Counter, namedtuple
 from functools import reduce
-from datetime import timedelta
-
 from toolz import pipe
 
 import regex as re
@@ -25,9 +23,9 @@ class Paradigms(object):
 
     def __init__(self, data):
 
-        self.maxlen = max(len(f) for f in data['form']) - 1
+        self.maxlen = max(len(f) for f in data['form']) + 1
 
-        self.charset = sorted(reduce(set.union, map(set, data['form'])))
+        self.charset = sorted(reduce(set.union, map(set, data['form']))) + ['<', '>']
         self.char_decode = dict(enumerate(self.charset))
         self.char_encode = dict((c, i) for (i, c) in self.char_decode.items())
 
@@ -38,8 +36,8 @@ class Paradigms(object):
         self.C = len(self.charset)
 
     def N(self, data):
-        """Number of items to be predicted in a dataset (first char of each form is always known)."""
-        return sum(len(f)-1 for f in data['form'])
+        """Number of items to be predicted in a dataset (add one for end of word marker)"""
+        return sum(len(f)+1 for f in data['form'])
 
     def generator(self, data, batch_size):
 
@@ -49,22 +47,16 @@ class Paradigms(object):
         i = 0
 
         while True:
-
             data = data.sample(frac=1)
-
-            for form, lex, feat in data.itertuples(index=False):
-                form = np.array([self.char_encode[c] for c in form])
-
+            for item in data.itertuples(index=False):
+                form = np.array([self.char_encode[c] for c in ['<'] + item.form + ['>']])
                 for j in range(len(form)-1):
-
-                    x1[i, self.lexeme[lex]] = 1
-                    x1[i, self.features[feat]] = 1
+                    x1[i, self.lexeme[item.lexeme]] = 1
+                    x1[i, self.features[item.features]] = 1
                     p = self.maxlen-(j+1)
                     x2[i, range(p, self.maxlen), form[:j+1]] = 1
                     y[i, form[j+1]] = 1
-
                     i += 1
-                
                     if i == batch_size:
                         yield ([x1, x2], y)
                         i = 0
@@ -81,15 +73,11 @@ class Paradigms(object):
                 
     def eval(self, model, testData, return_errors=False, **kwargs):
     
-        start = time.time()
-        elap = 0.0
-        
         batch_size = 20000
         B = 5
-        DTYPE = np.bool
         corr = 0
         total = 0
-        
+
         start_char = self.char_encode['<']
         end_char = self.char_encode['>']
         
@@ -105,10 +93,10 @@ class Paradigms(object):
             
             ## Morphosyntactic features
 
-            x1 = np.zeros((N, B, self.M), dtype=DTYPE)
-            for i, (form, lex, feat) in enumerate(batch.itertuples(index=False)):
-                x1[i,:,self.lexeme[lex]] = 1
-                x1[i,:,self.features[feat]] = 1
+            x1 = np.zeros((N, B, self.M), dtype=np.bool)
+            for i, item in enumerate(batch.itertuples(index=False)):
+                x1[i,:,self.lexeme[item.lexeme]] = 1
+                x1[i,:,self.features[item.features]] = 1
 
             ## Initialize beams
 
@@ -120,18 +108,20 @@ class Paradigms(object):
                 cand[-1, start_char] = 1
                 beam[j].append(Item(score=1.0, word=cand))
                 for _ in range(B-1):
-                    beam[j].append(Item(score=-1.0, word=cand))
+                    beam[j].append(Item(score=0.0, word=cand))
 
-            x2 = np.zeros((N, B, self.maxlen, self.C), dtype=DTYPE)
+            #for xx in beam[0]:
+            #    print('%10.7f'%xx.score,''.join(self.char_decode[yy] for yy in np.argmax(xx.word, axis=1)))
+            #print()
+
+            x2 = np.zeros((N, B, self.maxlen, self.C), dtype=np.bool)
             for i in range(self.maxlen-1):
                 for j in range(N):
                     for b in range(B):
                         x2[j, b, :, :] = beam[j][b].word
                 x1.shape = (N*B, self.M)
                 x2.shape = (N*B, self.maxlen, self.C)
-                t0 = time.time()
-                preds = model.predict([x1, x2], verbose=False, batch_size=1000)
-                elap += time.time() - t0
+                preds = model.predict([x1, x2], verbose=False, batch_size=batch_size)
                 preds.shape = (N, B, self.C)
                 x1.shape = (N, B, self.M)
                 x2.shape = (N, B, self.maxlen, self.C)
@@ -151,38 +141,26 @@ class Paradigms(object):
                                     shufflein(new_beam[j], Item(score=p, word=t), B)
                 beam = new_beam
 
-            wrong = [ ]    
-            for i, (form, lex, feat) in enumerate(batch.itertuples(index=False)):
+                #for xx in beam[0]:
+                #    print('%10.7f'%xx.score,''.join(self.char_decode[yy] for yy in np.argmax(xx.word, axis=1)))
+                #print()
+
+            for i, form in enumerate(batch['form']):
                 word = [self.char_decode[c] for c in np.argmax(beam[i][0].word, axis=1)]
                 try:
-                    word = word[rindex(word, '<'):word.index('>')+1]
+                    word = word[(rindex(word, '<') + 1):word.index('>')]
                 except ValueError:
                     pass
-
                 total += 1
+                #print(''.join(word),''.join(form))
                 if word == form:
                     corr += 1
-                else:
-                    #form = ''.join(form)
-                    #word = ''.join(word)
-                    #print(form, lex, feat, word)
-                    #for j in range(len(beam[i])):
-                    #    print ('**', beam[i][j][0], 
-                    #        ''.join(self.char_decode[c] for c in np.argmax(beam[i][j][1], axis=1)))
-                    #wrong.append((form, lex, feat, word))
-                    pass
 
             if kwargs['verbose']:
                 progbar.update(so_far)
         
         score = corr/total*100.
-
-        #print(elap,time.time()-start-elap)
-        
-        if return_errors:
-            return wrong
-        else:
-            return score
+        return score
 
 def shufflein(L, x, m):
     L.append(x)
@@ -199,7 +177,7 @@ def rindex(alist, value):
     try:
         result = len(alist) - alist[-1::-1].index(value) -1
     except ValueError:
-        result = alist
+        raise ValueError
     return result
 
 def x_baseline(train, test):
@@ -221,9 +199,6 @@ def x_baseline(train, test):
     return correct/total * 100.
 
 def paradigms(data, index, **kwargs):
-
-
-    t0 = time.time()    
 
     # Build model
 
@@ -278,10 +253,8 @@ def paradigms(data, index, **kwargs):
 
     if len(test) > 0:
         score = P.eval(model, test, **kwargs)
-        print('*** Elapsed time:', timedelta(seconds=time.time()-t0))
         return score
     else:
-        print('*** Elapsed time:', timedelta(seconds=time.time()-t0))
         return 1.0
 
 if __name__ == '__main__':
@@ -336,33 +309,33 @@ if __name__ == '__main__':
 
     print('** Read data', args['datafile'])
 
-    data = pd.read_csv(args['datafile'], sep='\t', names=['form', 'lexeme', 'features'])
-    baseline_data = data.copy()
+    data = pd.read_csv(args['datafile'], sep='\t', names=['form', 'lexeme', 'features', 'lemma'])
     if args['spaces']:
-        data['form'] = [['<'] + f.split(' ') + ['>'] for f in data['form']]
-        baseline_data['form'] = [f.split(' ') for f in baseline_data['form']]
-        baseline_data['lexeme'] = [f.split(' ') for f in baseline_data['lexeme']]
+        data['form'] = data['form'].str.split(' ')
+        if not data['lemma'].isnull().any():
+            data['lemma'] = data['lemma'].str.split(' ')
     else:
-        data['form'] = [['<'] + re.findall(r'\X', f) + ['>'] for f in data['form']]
-        baseline_data['form'] = [re.findall(r'\X', f) for f in baseline_data['form']]
-        baseline_data['lexeme'] = [re.findall(r'\X', f) for f in baseline_data['lexeme']]
-
-    #if args['spaces']:
-    #    data['form'] = [['<'] + f.split(' ') + ['>'] for f in data['form']]
-    #else:
-    #    data['form'] = [['<'] + re.findall(r'\X', f) + ['>'] for f in data['form']]
+        data['form'] = [re.findall(r'\X', f) for f in data['form']]
+        if not data['lemma'].isnull().any():
+            data['lemma'] = [re.findall(r'\X', f) for f in data['lemma']]
 
     if args['cv']:
         index = np.random.randint(1, args['cv']+1, len(data))
         for k in range(1, max(index)+1):
             print('** Start run', k)
             args['score'] = paradigms(data, index==k, **args)
-            args['baseline'] = baseline(baseline_data, index==k, **args)
+            if  not data['lemma'].isnull().any():
+                args['baseline'] = baseline(data, index==k, **args)
+            else:
+                args['baseline'] = 0.0
             print(args)
     elif args['train']:
         index = np.array([np.random.random() > float(args['train']) for i in range(len(data))], dtype=np.bool)
         args['score'] = paradigms(data, index, **args)
-        args['baseline'] = baseline(baseline_data, index, **args)
+        if not data['lemma'].isnull().any():
+            args['baseline'] = baseline(data, index == k, **args)
+        else:
+            args['baseline'] = 0.0
         print(args)
     else:
         index = np.zeros((len(data)), dtype=np.bool)
