@@ -3,977 +3,985 @@
 ** Compile model
 ** Train model
 Epoch 1/100
-4s - loss: 2.3659 - acc: 0.2881
+4s - loss: 2.3786 - acc: 0.2797
 Epoch 2/100
-3s - loss: 1.3209 - acc: 0.5633
+3s - loss: 1.4234 - acc: 0.5216
 Epoch 3/100
-3s - loss: 0.7728 - acc: 0.7418
+3s - loss: 0.8268 - acc: 0.7253
 Epoch 4/100
-3s - loss: 0.4639 - acc: 0.8562
+3s - loss: 0.4866 - acc: 0.8471
 Epoch 5/100
-3s - loss: 0.2773 - acc: 0.9198
+3s - loss: 0.2950 - acc: 0.9135
 Epoch 6/100
-3s - loss: 0.1771 - acc: 0.9522
+3s - loss: 0.1780 - acc: 0.9516
 Epoch 7/100
-3s - loss: 0.1121 - acc: 0.9706
+3s - loss: 0.1158 - acc: 0.9699
 Epoch 8/100
-3s - loss: 0.0814 - acc: 0.9790
+3s - loss: 0.0806 - acc: 0.9794
 Epoch 9/100
-3s - loss: 0.0467 - acc: 0.9851
+3s - loss: 0.0578 - acc: 0.9845
 Epoch 10/100
-3s - loss: 0.0425 - acc: 0.9881
+3s - loss: 0.0423 - acc: 0.9884
 Epoch 11/100
-3s - loss: 0.0348 - acc: 0.9904
+3s - loss: 0.0356 - acc: 0.9904
 Epoch 12/100
-3s - loss: 0.0282 - acc: 0.9919
+3s - loss: 0.0280 - acc: 0.9917
 Epoch 13/100
-3s - loss: 0.0241 - acc: 0.9930
+3s - loss: 0.0230 - acc: 0.9931
 Epoch 14/100
-3s - loss: 0.0218 - acc: 0.9933
+3s - loss: 0.0209 - acc: 0.9930
 Epoch 15/100
-3s - loss: 0.0186 - acc: 0.9941
+3s - loss: 0.0193 - acc: 0.9942
 Epoch 16/100
-3s - loss: 0.0170 - acc: 0.9944
+3s - loss: 0.0085 - acc: 0.9960
 Epoch 17/100
-3s - loss: 0.0158 - acc: 0.9949
+3s - loss: 0.0149 - acc: 0.9949
 Epoch 18/100
-3s - loss: 0.0139 - acc: 0.9953
+3s - loss: 0.0056 - acc: 0.9967
 Epoch 19/100
-3s - loss: 0.0137 - acc: 0.9947
+3s - loss: 0.0163 - acc: 0.9950
 Epoch 20/100
-3s - loss: 0.0149 - acc: 0.9954
+3s - loss: 0.0118 - acc: 0.9953
 Epoch 21/100
-3s - loss: 0.0125 - acc: 0.9955
+3s - loss: 0.0040 - acc: 0.9971
 Epoch 22/100
-3s - loss: 0.0119 - acc: 0.9952
+3s - loss: 0.0110 - acc: 0.9954
 Epoch 23/100
-3s - loss: 0.0116 - acc: 0.9958
+3s - loss: 0.0119 - acc: 0.9959
 Epoch 24/100
-3s - loss: 0.0101 - acc: 0.9957
+3s - loss: 0.0032 - acc: 0.9951
 Epoch 25/100
-3s - loss: 0.0028 - acc: 0.9959
+3s - loss: 0.0125 - acc: 0.9958
 Epoch 26/100
-3s - loss: 0.0106 - acc: 0.9959
+3s - loss: 0.0098 - acc: 0.9955
 Epoch 27/100
-3s - loss: 0.0092 - acc: 0.9957
+3s - loss: 0.0090 - acc: 0.9956
 Epoch 28/100
-3s - loss: 0.0104 - acc: 0.9960
+3s - loss: 0.0086 - acc: 0.9958
 Epoch 29/100
-3s - loss: 0.0088 - acc: 0.9959
+3s - loss: 0.0093 - acc: 0.9956
 Epoch 30/100
-3s - loss: 0.0017 - acc: 0.9976
-Epoch 31/100
-3s - loss: 0.0100 - acc: 0.9960
-Epoch 32/100
-3s - loss: 0.0099 - acc: 0.9962
-Epoch 33/100
-3s - loss: 0.0101 - acc: 0.9963
-Epoch 34/100
-3s - loss: 0.0084 - acc: 0.9959
-Epoch 35/100
-3s - loss: 0.0078 - acc: 0.9960
-Epoch 36/100
-3s - loss: 0.0088 - acc: 0.9962
-*** Elapsed time: 0:03:20.984004
-{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 99.03614457831326, 'baseline': 26.746987951807228}
+3s - loss: 0.0129 - acc: 0.9960
+{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 99.23076923076923, 'baseline': 28.35164835164835}
 ** Start run 2
 ** Compile model
 ** Train model
 Epoch 1/100
-3s - loss: 2.3667 - acc: 0.2855
+3s - loss: 2.3572 - acc: 0.2878
 Epoch 2/100
-3s - loss: 1.3116 - acc: 0.5659
+3s - loss: 1.3318 - acc: 0.5595
 Epoch 3/100
-3s - loss: 0.7794 - acc: 0.7430
+3s - loss: 0.7847 - acc: 0.7408
 Epoch 4/100
-3s - loss: 0.4599 - acc: 0.8555
+3s - loss: 0.4710 - acc: 0.8540
 Epoch 5/100
-3s - loss: 0.2756 - acc: 0.9189
+3s - loss: 0.2773 - acc: 0.9187
 Epoch 6/100
-3s - loss: 0.1637 - acc: 0.9550
+3s - loss: 0.1671 - acc: 0.9570
 Epoch 7/100
-3s - loss: 0.1027 - acc: 0.9726
+3s - loss: 0.1031 - acc: 0.9744
 Epoch 8/100
-3s - loss: 0.0661 - acc: 0.9821
+3s - loss: 0.0682 - acc: 0.9840
 Epoch 9/100
-3s - loss: 0.0523 - acc: 0.9861
+3s - loss: 0.0473 - acc: 0.9889
 Epoch 10/100
-3s - loss: 0.0326 - acc: 0.9901
+3s - loss: 0.0343 - acc: 0.9917
 Epoch 11/100
-3s - loss: 0.0230 - acc: 0.9928
+3s - loss: 0.0246 - acc: 0.9941
 Epoch 12/100
-3s - loss: 0.0178 - acc: 0.9938
+3s - loss: 0.0177 - acc: 0.9962
 Epoch 13/100
-3s - loss: 0.0138 - acc: 0.9947
+3s - loss: 0.0141 - acc: 0.9967
 Epoch 14/100
-3s - loss: 0.0107 - acc: 0.9954
+3s - loss: 0.0115 - acc: 0.9972
 Epoch 15/100
-3s - loss: 0.0085 - acc: 0.9960
+3s - loss: 0.0096 - acc: 0.9978
 Epoch 16/100
-3s - loss: 0.0077 - acc: 0.9960
+3s - loss: 0.0079 - acc: 0.9980
 Epoch 17/100
-3s - loss: 0.0067 - acc: 0.9963
+3s - loss: 0.0070 - acc: 0.9980
 Epoch 18/100
-3s - loss: 0.0049 - acc: 0.9970
+3s - loss: 0.0057 - acc: 0.9982
 Epoch 19/100
-3s - loss: 0.0040 - acc: 0.9971
+3s - loss: 0.0053 - acc: 0.9985
 Epoch 20/100
-3s - loss: 0.0038 - acc: 0.9969
+3s - loss: 0.0044 - acc: 0.9989
 Epoch 21/100
-3s - loss: 0.0033 - acc: 0.9971
+3s - loss: 0.0037 - acc: 0.9990
 Epoch 22/100
-3s - loss: 0.0028 - acc: 0.9973
+3s - loss: 0.0030 - acc: 0.9992
 Epoch 23/100
-3s - loss: 0.0027 - acc: 0.9973
+3s - loss: 0.0027 - acc: 0.9991
 Epoch 24/100
-3s - loss: 0.0024 - acc: 0.9974
+3s - loss: 0.0025 - acc: 0.9993
 Epoch 25/100
-3s - loss: 0.0019 - acc: 0.9975
+3s - loss: 0.0020 - acc: 0.9994
 Epoch 26/100
-3s - loss: 0.0022 - acc: 0.9974
+3s - loss: 0.0019 - acc: 0.9994
 Epoch 27/100
-3s - loss: 0.0017 - acc: 0.9974
+3s - loss: 0.0025 - acc: 0.9992
 Epoch 28/100
-3s - loss: 0.0017 - acc: 0.9975
+3s - loss: 0.0020 - acc: 0.9993
 Epoch 29/100
-3s - loss: 0.0015 - acc: 0.9975
+3s - loss: 0.0020 - acc: 0.9993
 Epoch 30/100
-3s - loss: 0.0012 - acc: 0.9977
+3s - loss: 0.0015 - acc: 0.9994
 Epoch 31/100
-3s - loss: 0.0012 - acc: 0.9977
+3s - loss: 0.0013 - acc: 0.9995
 Epoch 32/100
-3s - loss: 9.4097e-04 - acc: 0.9978
+3s - loss: 0.0012 - acc: 0.9995
 Epoch 33/100
-3s - loss: 0.0013 - acc: 0.9977
+3s - loss: 0.0013 - acc: 0.9995
 Epoch 34/100
-3s - loss: 7.6944e-04 - acc: 0.9978
+3s - loss: 0.0011 - acc: 0.9995
 Epoch 35/100
-3s - loss: 9.3710e-04 - acc: 0.9976
+3s - loss: 0.0016 - acc: 0.9995
 Epoch 36/100
-3s - loss: 6.8791e-04 - acc: 0.9977
+3s - loss: 0.0012 - acc: 0.9995
 Epoch 37/100
-3s - loss: 6.9888e-04 - acc: 0.9978
+3s - loss: 9.4859e-04 - acc: 0.9996
 Epoch 38/100
-3s - loss: 9.6831e-04 - acc: 0.9976
+3s - loss: 0.0012 - acc: 0.9995
 Epoch 39/100
-3s - loss: 0.0010 - acc: 0.9977
+3s - loss: 0.0013 - acc: 0.9996
 Epoch 40/100
-3s - loss: 8.1644e-04 - acc: 0.9977
+3s - loss: 5.0766e-04 - acc: 0.9997
 Epoch 41/100
-3s - loss: 8.4186e-04 - acc: 0.9977
+3s - loss: 0.0012 - acc: 0.9996
 Epoch 42/100
-3s - loss: 6.9107e-04 - acc: 0.9978
-*** Elapsed time: 0:03:28.232277
-{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.74213836477988, 'baseline': 32.83018867924528}
+3s - loss: 6.3882e-04 - acc: 0.9997
+Epoch 43/100
+3s - loss: 8.0405e-04 - acc: 0.9996
+Epoch 44/100
+3s - loss: 4.4988e-04 - acc: 0.9997
+Epoch 45/100
+3s - loss: 5.3119e-04 - acc: 0.9997
+Epoch 46/100
+3s - loss: 8.5374e-04 - acc: 0.9996
+Epoch 47/100
+3s - loss: 6.9692e-04 - acc: 0.9996
+Epoch 48/100
+3s - loss: 3.8808e-04 - acc: 0.9998
+Epoch 49/100
+3s - loss: 4.4481e-04 - acc: 0.9998
+Epoch 50/100
+3s - loss: 4.7498e-04 - acc: 0.9997
+Epoch 51/100
+3s - loss: 5.6163e-04 - acc: 0.9997
+Epoch 52/100
+3s - loss: 4.2722e-04 - acc: 0.9997
+Epoch 53/100
+3s - loss: 5.3776e-04 - acc: 0.9997
+Epoch 54/100
+3s - loss: 4.2308e-04 - acc: 0.9998
+{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.56801909307876, 'baseline': 27.804295942720763}
 ** Start run 3
 ** Compile model
 ** Train model
 Epoch 1/100
-3s - loss: 2.3844 - acc: 0.2756
+3s - loss: 2.4193 - acc: 0.2639
 Epoch 2/100
-3s - loss: 1.4330 - acc: 0.5198
+3s - loss: 1.4813 - acc: 0.4964
 Epoch 3/100
-3s - loss: 0.8792 - acc: 0.7098
+3s - loss: 0.8735 - acc: 0.7086
 Epoch 4/100
-3s - loss: 0.5307 - acc: 0.8328
+3s - loss: 0.5208 - acc: 0.8324
 Epoch 5/100
-3s - loss: 0.3063 - acc: 0.9105
+3s - loss: 0.3075 - acc: 0.9082
 Epoch 6/100
-3s - loss: 0.1941 - acc: 0.9482
+3s - loss: 0.1831 - acc: 0.9494
 Epoch 7/100
-3s - loss: 0.1250 - acc: 0.9682
+3s - loss: 0.1124 - acc: 0.9701
 Epoch 8/100
-3s - loss: 0.0847 - acc: 0.9789
+3s - loss: 0.0720 - acc: 0.9810
 Epoch 9/100
-3s - loss: 0.0635 - acc: 0.9848
+3s - loss: 0.0500 - acc: 0.9874
 Epoch 10/100
-3s - loss: 0.0375 - acc: 0.9898
+3s - loss: 0.0343 - acc: 0.9909
 Epoch 11/100
-3s - loss: 0.0375 - acc: 0.9911
+3s - loss: 0.0253 - acc: 0.9932
 Epoch 12/100
-3s - loss: 0.0320 - acc: 0.9923
+3s - loss: 0.0195 - acc: 0.9943
 Epoch 13/100
-3s - loss: 0.0258 - acc: 0.9936
+3s - loss: 0.0141 - acc: 0.9957
 Epoch 14/100
-3s - loss: 0.0239 - acc: 0.9941
+3s - loss: 0.0114 - acc: 0.9965
 Epoch 15/100
-3s - loss: 0.0202 - acc: 0.9944
+3s - loss: 0.0091 - acc: 0.9969
 Epoch 16/100
-3s - loss: 0.0087 - acc: 0.9969
+3s - loss: 0.0073 - acc: 0.9972
 Epoch 17/100
-3s - loss: 0.0170 - acc: 0.9954
+3s - loss: 0.0064 - acc: 0.9973
 Epoch 18/100
-3s - loss: 0.0151 - acc: 0.9956
+3s - loss: 0.0060 - acc: 0.9974
 Epoch 19/100
-3s - loss: 0.0149 - acc: 0.9961
+3s - loss: 0.0046 - acc: 0.9978
 Epoch 20/100
-3s - loss: 0.0142 - acc: 0.9959
+3s - loss: 0.0043 - acc: 0.9980
 Epoch 21/100
-3s - loss: 0.0126 - acc: 0.9959
+3s - loss: 0.0039 - acc: 0.9981
 Epoch 22/100
-3s - loss: 0.0119 - acc: 0.9960
-*** Elapsed time: 0:02:19.960596
-{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.00469483568075, 'baseline': 32.159624413145536}
+3s - loss: 0.0025 - acc: 0.9984
+Epoch 23/100
+3s - loss: 0.0029 - acc: 0.9983
+Epoch 24/100
+3s - loss: 0.0023 - acc: 0.9984
+Epoch 25/100
+3s - loss: 0.0021 - acc: 0.9984
+Epoch 26/100
+3s - loss: 0.0019 - acc: 0.9985
+Epoch 27/100
+3s - loss: 0.0014 - acc: 0.9986
+Epoch 28/100
+3s - loss: 0.0012 - acc: 0.9986
+Epoch 29/100
+3s - loss: 0.0013 - acc: 0.9987
+Epoch 30/100
+3s - loss: 0.0013 - acc: 0.9986
+Epoch 31/100
+3s - loss: 0.0013 - acc: 0.9987
+Epoch 32/100
+3s - loss: 0.0014 - acc: 0.9986
+Epoch 33/100
+3s - loss: 0.0012 - acc: 0.9986
+Epoch 34/100
+3s - loss: 8.3456e-04 - acc: 0.9987
+Epoch 35/100
+3s - loss: 9.1362e-04 - acc: 0.9987
+Epoch 36/100
+3s - loss: 0.0010 - acc: 0.9987
+Epoch 37/100
+3s - loss: 0.0012 - acc: 0.9987
+Epoch 38/100
+3s - loss: 6.3359e-04 - acc: 0.9988
+Epoch 39/100
+3s - loss: 6.4044e-04 - acc: 0.9988
+Epoch 40/100
+3s - loss: 9.1068e-04 - acc: 0.9987
+Epoch 41/100
+3s - loss: 7.2319e-04 - acc: 0.9988
+Epoch 42/100
+3s - loss: 4.7524e-04 - acc: 0.9988
+Epoch 43/100
+3s - loss: 6.7552e-04 - acc: 0.9987
+Epoch 44/100
+3s - loss: 5.8880e-04 - acc: 0.9988
+Epoch 45/100
+3s - loss: 6.7564e-04 - acc: 0.9987
+Epoch 46/100
+3s - loss: 6.0491e-04 - acc: 0.9988
+Epoch 47/100
+3s - loss: 7.2883e-04 - acc: 0.9988
+Epoch 48/100
+3s - loss: 6.4147e-04 - acc: 0.9988
+{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.60950173812283, 'baseline': 30.475086906141367}
 ** Start run 4
 ** Compile model
 ** Train model
 Epoch 1/100
-3s - loss: 2.3931 - acc: 0.2826
+3s - loss: 2.4277 - acc: 0.2581
 Epoch 2/100
-3s - loss: 1.3639 - acc: 0.5503
+3s - loss: 1.5021 - acc: 0.4831
 Epoch 3/100
-3s - loss: 0.8019 - acc: 0.7354
+3s - loss: 0.9166 - acc: 0.6892
 Epoch 4/100
-3s - loss: 0.4853 - acc: 0.8496
+3s - loss: 0.5557 - acc: 0.8265
 Epoch 5/100
-3s - loss: 0.2844 - acc: 0.9175
+3s - loss: 0.3330 - acc: 0.9025
 Epoch 6/100
-3s - loss: 0.1712 - acc: 0.9552
+3s - loss: 0.2013 - acc: 0.9464
 Epoch 7/100
-3s - loss: 0.1081 - acc: 0.9732
+3s - loss: 0.1304 - acc: 0.9668
 Epoch 8/100
-3s - loss: 0.0711 - acc: 0.9830
+3s - loss: 0.0852 - acc: 0.9792
 Epoch 9/100
-3s - loss: 0.0483 - acc: 0.9885
+3s - loss: 0.0600 - acc: 0.9849
 Epoch 10/100
-3s - loss: 0.0348 - acc: 0.9917
+3s - loss: 0.0457 - acc: 0.9880
 Epoch 11/100
-3s - loss: 0.0267 - acc: 0.9936
+3s - loss: 0.0277 - acc: 0.9922
 Epoch 12/100
-3s - loss: 0.0191 - acc: 0.9957
+3s - loss: 0.0278 - acc: 0.9929
 Epoch 13/100
-3s - loss: 0.0146 - acc: 0.9965
+3s - loss: 0.0234 - acc: 0.9930
 Epoch 14/100
-3s - loss: 0.0122 - acc: 0.9968
+3s - loss: 0.0199 - acc: 0.9939
 Epoch 15/100
-3s - loss: 0.0098 - acc: 0.9976
+3s - loss: 0.0173 - acc: 0.9945
 Epoch 16/100
-3s - loss: 0.0076 - acc: 0.9981
+3s - loss: 0.0172 - acc: 0.9951
 Epoch 17/100
-3s - loss: 0.0081 - acc: 0.9980
+3s - loss: 0.0071 - acc: 0.9968
 Epoch 18/100
-3s - loss: 0.0064 - acc: 0.9983
+3s - loss: 0.0133 - acc: 0.9952
 Epoch 19/100
-3s - loss: 0.0045 - acc: 0.9990
+3s - loss: 0.0043 - acc: 0.9977
 Epoch 20/100
-3s - loss: 0.0046 - acc: 0.9988
+3s - loss: 0.0038 - acc: 0.9978
 Epoch 21/100
-3s - loss: 0.0041 - acc: 0.9990
+3s - loss: 0.0040 - acc: 0.9975
 Epoch 22/100
-3s - loss: 0.0034 - acc: 0.9991
+3s - loss: 0.0138 - acc: 0.9960
 Epoch 23/100
-3s - loss: 0.0029 - acc: 0.9992
+3s - loss: 0.0138 - acc: 0.9963
 Epoch 24/100
-3s - loss: 0.0025 - acc: 0.9993
+3s - loss: 0.0099 - acc: 0.9960
 Epoch 25/100
-3s - loss: 0.0030 - acc: 0.9991
+3s - loss: 0.0025 - acc: 0.9959
 Epoch 26/100
-3s - loss: 0.0025 - acc: 0.9993
+3s - loss: 0.0091 - acc: 0.9962
 Epoch 27/100
-3s - loss: 0.0017 - acc: 0.9993
+3s - loss: 0.0129 - acc: 0.9963
 Epoch 28/100
-3s - loss: 0.0020 - acc: 0.9994
+3s - loss: 0.0092 - acc: 0.9942
 Epoch 29/100
-3s - loss: 0.0018 - acc: 0.9994
+3s - loss: 0.0088 - acc: 0.9962
 Epoch 30/100
-3s - loss: 0.0015 - acc: 0.9995
+3s - loss: 0.0123 - acc: 0.9965
 Epoch 31/100
-3s - loss: 0.0017 - acc: 0.9995
+3s - loss: 0.0014 - acc: 0.9983
 Epoch 32/100
-3s - loss: 9.8779e-04 - acc: 0.9997
+3s - loss: 0.0087 - acc: 0.9963
 Epoch 33/100
-3s - loss: 0.0013 - acc: 0.9995
+3s - loss: 0.0110 - acc: 0.9968
 Epoch 34/100
-3s - loss: 0.0014 - acc: 0.9996
+3s - loss: 9.7949e-04 - acc: 0.9983
 Epoch 35/100
-3s - loss: 9.0174e-04 - acc: 0.9996
+3s - loss: 0.0112 - acc: 0.9968
 Epoch 36/100
-3s - loss: 0.0012 - acc: 0.9996
+3s - loss: 0.0112 - acc: 0.9966
 Epoch 37/100
-3s - loss: 0.0012 - acc: 0.9995
+3s - loss: 0.0081 - acc: 0.9965
 Epoch 38/100
-3s - loss: 9.7929e-04 - acc: 0.9996
+3s - loss: 0.0098 - acc: 0.9968
 Epoch 39/100
-3s - loss: 9.8325e-04 - acc: 0.9996
+3s - loss: 0.0090 - acc: 0.9970
 Epoch 40/100
-3s - loss: 6.7312e-04 - acc: 0.9997
-Epoch 41/100
-3s - loss: 8.5137e-04 - acc: 0.9997
-Epoch 42/100
-3s - loss: 6.8341e-04 - acc: 0.9997
-Epoch 43/100
-3s - loss: 7.3333e-04 - acc: 0.9997
-Epoch 44/100
-3s - loss: 0.0010 - acc: 0.9996
-Epoch 45/100
-3s - loss: 6.3677e-04 - acc: 0.9997
-Epoch 46/100
-3s - loss: 8.8565e-04 - acc: 0.9996
-Epoch 47/100
-3s - loss: 4.2762e-04 - acc: 0.9998
-Epoch 48/100
-3s - loss: 3.7995e-04 - acc: 0.9998
-Epoch 49/100
-3s - loss: 6.0486e-04 - acc: 0.9997
-Epoch 50/100
-3s - loss: 9.4225e-04 - acc: 0.9997
-Epoch 51/100
-3s - loss: 4.2264e-04 - acc: 0.9998
-Epoch 52/100
-3s - loss: 4.1510e-04 - acc: 0.9998
-Epoch 53/100
-3s - loss: 8.5066e-04 - acc: 0.9997
-Epoch 54/100
-3s - loss: 5.1168e-04 - acc: 0.9998
-*** Elapsed time: 0:04:09.445500
-{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.73997709049256, 'baseline': 32.302405498281786}
+3s - loss: 0.0074 - acc: 0.9966
+{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.55421686746988, 'baseline': 26.746987951807228}
 ** Start run 5
 ** Compile model
 ** Train model
 Epoch 1/100
-3s - loss: 2.3542 - acc: 0.2868
+3s - loss: 2.4287 - acc: 0.2563
 Epoch 2/100
-3s - loss: 1.4326 - acc: 0.5246
+3s - loss: 1.5423 - acc: 0.4715
 Epoch 3/100
-3s - loss: 0.8409 - acc: 0.7231
+3s - loss: 0.9327 - acc: 0.6904
 Epoch 4/100
-3s - loss: 0.4819 - acc: 0.8513
+3s - loss: 0.5489 - acc: 0.8249
 Epoch 5/100
-3s - loss: 0.2803 - acc: 0.9201
+3s - loss: 0.3233 - acc: 0.9051
 Epoch 6/100
-3s - loss: 0.1680 - acc: 0.9550
+3s - loss: 0.1913 - acc: 0.9474
 Epoch 7/100
-3s - loss: 0.1037 - acc: 0.9748
+3s - loss: 0.1171 - acc: 0.9712
 Epoch 8/100
-3s - loss: 0.0667 - acc: 0.9845
+3s - loss: 0.0762 - acc: 0.9814
 Epoch 9/100
-3s - loss: 0.0463 - acc: 0.9892
+3s - loss: 0.0513 - acc: 0.9873
 Epoch 10/100
-3s - loss: 0.0314 - acc: 0.9929
+3s - loss: 0.0348 - acc: 0.9923
 Epoch 11/100
-3s - loss: 0.0231 - acc: 0.9945
+3s - loss: 0.0254 - acc: 0.9944
 Epoch 12/100
-3s - loss: 0.0183 - acc: 0.9956
+3s - loss: 0.0205 - acc: 0.9947
 Epoch 13/100
-3s - loss: 0.0134 - acc: 0.9967
+3s - loss: 0.0148 - acc: 0.9967
 Epoch 14/100
-3s - loss: 0.0100 - acc: 0.9978
+3s - loss: 0.0117 - acc: 0.9974
 Epoch 15/100
-3s - loss: 0.0083 - acc: 0.9979
+3s - loss: 0.0098 - acc: 0.9977
 Epoch 16/100
-3s - loss: 0.0072 - acc: 0.9983
+3s - loss: 0.0077 - acc: 0.9981
 Epoch 17/100
-3s - loss: 0.0057 - acc: 0.9986
+3s - loss: 0.0062 - acc: 0.9986
 Epoch 18/100
-3s - loss: 0.0050 - acc: 0.9986
+3s - loss: 0.0057 - acc: 0.9987
 Epoch 19/100
-3s - loss: 0.0043 - acc: 0.9988
+3s - loss: 0.0043 - acc: 0.9990
 Epoch 20/100
-3s - loss: 0.0036 - acc: 0.9990
+3s - loss: 0.0044 - acc: 0.9988
 Epoch 21/100
-3s - loss: 0.0029 - acc: 0.9991
+3s - loss: 0.0034 - acc: 0.9992
 Epoch 22/100
-3s - loss: 0.0029 - acc: 0.9991
+3s - loss: 0.0034 - acc: 0.9991
 Epoch 23/100
-3s - loss: 0.0024 - acc: 0.9994
+3s - loss: 0.0026 - acc: 0.9994
 Epoch 24/100
-3s - loss: 0.0018 - acc: 0.9994
+3s - loss: 0.0028 - acc: 0.9993
 Epoch 25/100
-3s - loss: 0.0020 - acc: 0.9994
+3s - loss: 0.0025 - acc: 0.9994
 Epoch 26/100
-3s - loss: 0.0018 - acc: 0.9994
+3s - loss: 0.0020 - acc: 0.9994
 Epoch 27/100
-3s - loss: 0.0014 - acc: 0.9995
+3s - loss: 0.0021 - acc: 0.9994
 Epoch 28/100
-3s - loss: 0.0014 - acc: 0.9995
+3s - loss: 0.0020 - acc: 0.9994
 Epoch 29/100
-3s - loss: 0.0013 - acc: 0.9996
+3s - loss: 0.0020 - acc: 0.9995
 Epoch 30/100
-3s - loss: 0.0011 - acc: 0.9996
+3s - loss: 0.0016 - acc: 0.9996
 Epoch 31/100
-3s - loss: 0.0010 - acc: 0.9996
+3s - loss: 0.0015 - acc: 0.9996
 Epoch 32/100
-3s - loss: 0.0014 - acc: 0.9995
+3s - loss: 0.0018 - acc: 0.9995
 Epoch 33/100
-3s - loss: 9.1792e-04 - acc: 0.9996
+3s - loss: 0.0010 - acc: 0.9997
 Epoch 34/100
-3s - loss: 6.9499e-04 - acc: 0.9997
+3s - loss: 0.0010 - acc: 0.9996
 Epoch 35/100
-3s - loss: 7.3948e-04 - acc: 0.9996
+3s - loss: 0.0013 - acc: 0.9996
 Epoch 36/100
-3s - loss: 8.8086e-04 - acc: 0.9996
+3s - loss: 0.0011 - acc: 0.9997
 Epoch 37/100
-3s - loss: 8.6579e-04 - acc: 0.9996
+3s - loss: 0.0012 - acc: 0.9997
 Epoch 38/100
-3s - loss: 3.5897e-04 - acc: 0.9998
+3s - loss: 9.8342e-04 - acc: 0.9997
 Epoch 39/100
-3s - loss: 6.1281e-04 - acc: 0.9996
+3s - loss: 0.0015 - acc: 0.9997
 Epoch 40/100
-3s - loss: 5.0600e-04 - acc: 0.9997
+3s - loss: 7.6543e-04 - acc: 0.9997
 Epoch 41/100
-3s - loss: 7.4717e-04 - acc: 0.9996
+3s - loss: 8.2152e-04 - acc: 0.9997
 Epoch 42/100
-3s - loss: 7.9241e-04 - acc: 0.9996
+3s - loss: 0.0010 - acc: 0.9998
 Epoch 43/100
-3s - loss: 4.2566e-04 - acc: 0.9997
+3s - loss: 9.5495e-04 - acc: 0.9998
 Epoch 44/100
-3s - loss: 3.9018e-04 - acc: 0.9997
-*** Elapsed time: 0:03:36.304666
-{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.91304347826086, 'baseline': 30.193236714975846}
+3s - loss: 9.2345e-04 - acc: 0.9998
+Epoch 45/100
+3s - loss: 5.9115e-04 - acc: 0.9997
+Epoch 46/100
+3s - loss: 7.0949e-04 - acc: 0.9998
+Epoch 47/100
+3s - loss: 3.6518e-04 - acc: 0.9999
+Epoch 48/100
+3s - loss: 6.1718e-04 - acc: 0.9998
+Epoch 49/100
+3s - loss: 4.2330e-04 - acc: 0.9999
+Epoch 50/100
+3s - loss: 5.8028e-04 - acc: 0.9999
+Epoch 51/100
+3s - loss: 3.8228e-04 - acc: 0.9999
+Epoch 52/100
+3s - loss: 4.6173e-04 - acc: 0.9999
+Epoch 53/100
+3s - loss: 3.8944e-04 - acc: 0.9999
+{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 99.35979513444302, 'baseline': 30.089628681177977}
 ** Start run 6
 ** Compile model
 ** Train model
 Epoch 1/100
-3s - loss: 2.4240 - acc: 0.2626
+3s - loss: 2.3910 - acc: 0.2765
 Epoch 2/100
-3s - loss: 1.5858 - acc: 0.4545
+3s - loss: 1.4110 - acc: 0.5277
 Epoch 3/100
-3s - loss: 1.0450 - acc: 0.6409
+3s - loss: 0.7846 - acc: 0.7439
 Epoch 4/100
-3s - loss: 0.6099 - acc: 0.8003
+3s - loss: 0.4418 - acc: 0.8657
 Epoch 5/100
-3s - loss: 0.3458 - acc: 0.8965
+3s - loss: 0.2570 - acc: 0.9276
 Epoch 6/100
-3s - loss: 0.1988 - acc: 0.9443
+3s - loss: 0.1541 - acc: 0.9596
 Epoch 7/100
-3s - loss: 0.1201 - acc: 0.9686
+3s - loss: 0.0951 - acc: 0.9761
 Epoch 8/100
-3s - loss: 0.0759 - acc: 0.9807
+3s - loss: 0.0643 - acc: 0.9838
 Epoch 9/100
-3s - loss: 0.0510 - acc: 0.9873
+3s - loss: 0.0440 - acc: 0.9895
 Epoch 10/100
-3s - loss: 0.0364 - acc: 0.9905
+3s - loss: 0.0297 - acc: 0.9929
 Epoch 11/100
-3s - loss: 0.0256 - acc: 0.9934
+3s - loss: 0.0226 - acc: 0.9943
 Epoch 12/100
-3s - loss: 0.0202 - acc: 0.9945
+3s - loss: 0.0178 - acc: 0.9954
 Epoch 13/100
-3s - loss: 0.0143 - acc: 0.9958
+3s - loss: 0.0132 - acc: 0.9965
 Epoch 14/100
-3s - loss: 0.0112 - acc: 0.9965
+3s - loss: 0.0112 - acc: 0.9971
 Epoch 15/100
-3s - loss: 0.0093 - acc: 0.9969
+3s - loss: 0.0090 - acc: 0.9974
 Epoch 16/100
-3s - loss: 0.0081 - acc: 0.9972
+3s - loss: 0.0072 - acc: 0.9980
 Epoch 17/100
-3s - loss: 0.0068 - acc: 0.9976
+3s - loss: 0.0063 - acc: 0.9981
 Epoch 18/100
-3s - loss: 0.0054 - acc: 0.9979
+3s - loss: 0.0051 - acc: 0.9984
 Epoch 19/100
-3s - loss: 0.0047 - acc: 0.9981
+3s - loss: 0.0047 - acc: 0.9985
 Epoch 20/100
-3s - loss: 0.0043 - acc: 0.9981
+3s - loss: 0.0035 - acc: 0.9987
 Epoch 21/100
-3s - loss: 0.0032 - acc: 0.9984
+3s - loss: 0.0034 - acc: 0.9988
 Epoch 22/100
-3s - loss: 0.0034 - acc: 0.9983
+3s - loss: 0.0032 - acc: 0.9987
 Epoch 23/100
-3s - loss: 0.0028 - acc: 0.9985
+3s - loss: 0.0027 - acc: 0.9988
 Epoch 24/100
-3s - loss: 0.0027 - acc: 0.9984
+3s - loss: 0.0027 - acc: 0.9988
 Epoch 25/100
-3s - loss: 0.0021 - acc: 0.9987
+3s - loss: 0.0025 - acc: 0.9988
 Epoch 26/100
-3s - loss: 0.0022 - acc: 0.9986
+3s - loss: 0.0019 - acc: 0.9990
 Epoch 27/100
-3s - loss: 0.0022 - acc: 0.9985
+3s - loss: 0.0017 - acc: 0.9992
 Epoch 28/100
-3s - loss: 0.0019 - acc: 0.9987
+3s - loss: 0.0020 - acc: 0.9989
 Epoch 29/100
-3s - loss: 0.0014 - acc: 0.9987
+3s - loss: 0.0014 - acc: 0.9991
 Epoch 30/100
-3s - loss: 0.0018 - acc: 0.9986
+3s - loss: 0.0016 - acc: 0.9991
 Epoch 31/100
-3s - loss: 0.0013 - acc: 0.9988
+3s - loss: 0.0015 - acc: 0.9990
 Epoch 32/100
-3s - loss: 0.0013 - acc: 0.9988
+3s - loss: 0.0012 - acc: 0.9992
 Epoch 33/100
-3s - loss: 0.0014 - acc: 0.9988
+3s - loss: 7.2980e-04 - acc: 0.9994
 Epoch 34/100
-3s - loss: 0.0013 - acc: 0.9988
+3s - loss: 9.5098e-04 - acc: 0.9992
 Epoch 35/100
-3s - loss: 0.0011 - acc: 0.9988
+3s - loss: 0.0014 - acc: 0.9991
 Epoch 36/100
-3s - loss: 0.0010 - acc: 0.9989
+3s - loss: 0.0011 - acc: 0.9993
 Epoch 37/100
-3s - loss: 8.4417e-04 - acc: 0.9990
+3s - loss: 0.0011 - acc: 0.9992
 Epoch 38/100
-3s - loss: 8.1776e-04 - acc: 0.9990
+3s - loss: 8.1874e-04 - acc: 0.9993
 Epoch 39/100
-3s - loss: 7.8324e-04 - acc: 0.9990
+3s - loss: 6.4248e-04 - acc: 0.9994
 Epoch 40/100
-3s - loss: 6.5336e-04 - acc: 0.9990
+3s - loss: 8.7878e-04 - acc: 0.9993
 Epoch 41/100
-3s - loss: 9.8351e-04 - acc: 0.9984
+3s - loss: 9.2826e-04 - acc: 0.9992
 Epoch 42/100
-3s - loss: 7.9724e-04 - acc: 0.9990
+3s - loss: 7.3841e-04 - acc: 0.9993
 Epoch 43/100
-3s - loss: 6.1065e-04 - acc: 0.9990
+3s - loss: 8.2345e-04 - acc: 0.9992
 Epoch 44/100
-3s - loss: 6.4651e-04 - acc: 0.9990
+3s - loss: 0.0012 - acc: 0.9992
 Epoch 45/100
-3s - loss: 6.7937e-04 - acc: 0.9990
+3s - loss: 5.5861e-04 - acc: 0.9993
 Epoch 46/100
-3s - loss: 4.7279e-04 - acc: 0.9990
+3s - loss: 6.7729e-04 - acc: 0.9994
 Epoch 47/100
-3s - loss: 4.8733e-04 - acc: 0.9990
+3s - loss: 4.5062e-04 - acc: 0.9994
 Epoch 48/100
-3s - loss: 4.8192e-04 - acc: 0.9991
+3s - loss: 3.9223e-04 - acc: 0.9994
 Epoch 49/100
-3s - loss: 4.0236e-04 - acc: 0.9991
+3s - loss: 6.9453e-04 - acc: 0.9993
 Epoch 50/100
-3s - loss: 4.1768e-04 - acc: 0.9990
+3s - loss: 2.6952e-04 - acc: 0.9994
 Epoch 51/100
-3s - loss: 7.6863e-04 - acc: 0.9990
+3s - loss: 3.0287e-04 - acc: 0.9994
 Epoch 52/100
-3s - loss: 8.2654e-04 - acc: 0.9989
+3s - loss: 6.7929e-04 - acc: 0.9993
 Epoch 53/100
-3s - loss: 5.9320e-04 - acc: 0.9991
+3s - loss: 4.0568e-04 - acc: 0.9994
 Epoch 54/100
-3s - loss: 4.1396e-04 - acc: 0.9991
+3s - loss: 6.1975e-04 - acc: 0.9993
 Epoch 55/100
-3s - loss: 2.3328e-04 - acc: 0.9991
+3s - loss: 6.6549e-04 - acc: 0.9993
 Epoch 56/100
-3s - loss: 4.2087e-04 - acc: 0.9990
-Epoch 57/100
-3s - loss: 4.4479e-04 - acc: 0.9990
-Epoch 58/100
-3s - loss: 2.7652e-04 - acc: 0.9991
-Epoch 59/100
-3s - loss: 5.4364e-04 - acc: 0.9990
-Epoch 60/100
-3s - loss: 5.3310e-04 - acc: 0.9990
-Epoch 61/100
-3s - loss: 3.0688e-04 - acc: 0.9990
-*** Elapsed time: 0:04:35.687230
-{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.76695437731196, 'baseline': 27.990135635018497}
+3s - loss: 8.3134e-04 - acc: 0.9993
+{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 99.03730445246691, 'baseline': 27.79783393501805}
 ** Start run 7
 ** Compile model
 ** Train model
 Epoch 1/100
-3s - loss: 2.4115 - acc: 0.2755
+3s - loss: 2.3799 - acc: 0.2806
 Epoch 2/100
-3s - loss: 1.4490 - acc: 0.5197
+3s - loss: 1.4590 - acc: 0.5068
 Epoch 3/100
-3s - loss: 0.8527 - acc: 0.7195
+3s - loss: 0.8709 - acc: 0.7110
 Epoch 4/100
-3s - loss: 0.4994 - acc: 0.8447
+3s - loss: 0.5118 - acc: 0.8400
 Epoch 5/100
-3s - loss: 0.2921 - acc: 0.9162
+3s - loss: 0.2942 - acc: 0.9159
 Epoch 6/100
-3s - loss: 0.1746 - acc: 0.9543
+3s - loss: 0.1729 - acc: 0.9535
 Epoch 7/100
-3s - loss: 0.1067 - acc: 0.9730
+3s - loss: 0.1053 - acc: 0.9733
 Epoch 8/100
-3s - loss: 0.0702 - acc: 0.9824
+3s - loss: 0.0684 - acc: 0.9829
 Epoch 9/100
-3s - loss: 0.0482 - acc: 0.9881
+3s - loss: 0.0450 - acc: 0.9889
 Epoch 10/100
-3s - loss: 0.0327 - acc: 0.9920
+3s - loss: 0.0320 - acc: 0.9919
 Epoch 11/100
-3s - loss: 0.0252 - acc: 0.9934
+3s - loss: 0.0226 - acc: 0.9942
 Epoch 12/100
-3s - loss: 0.0191 - acc: 0.9951
+3s - loss: 0.0167 - acc: 0.9953
 Epoch 13/100
-3s - loss: 0.0143 - acc: 0.9962
+3s - loss: 0.0128 - acc: 0.9960
 Epoch 14/100
-3s - loss: 0.0113 - acc: 0.9967
+3s - loss: 0.0104 - acc: 0.9968
 Epoch 15/100
-3s - loss: 0.0087 - acc: 0.9975
+3s - loss: 0.0086 - acc: 0.9968
 Epoch 16/100
-3s - loss: 0.0072 - acc: 0.9976
+3s - loss: 0.0065 - acc: 0.9974
 Epoch 17/100
-3s - loss: 0.0066 - acc: 0.9977
+3s - loss: 0.0059 - acc: 0.9978
 Epoch 18/100
-3s - loss: 0.0054 - acc: 0.9980
+3s - loss: 0.0046 - acc: 0.9979
 Epoch 19/100
-3s - loss: 0.0044 - acc: 0.9983
+3s - loss: 0.0042 - acc: 0.9980
 Epoch 20/100
-3s - loss: 0.0041 - acc: 0.9982
+3s - loss: 0.0037 - acc: 0.9980
 Epoch 21/100
-3s - loss: 0.0036 - acc: 0.9984
+3s - loss: 0.0028 - acc: 0.9983
 Epoch 22/100
-3s - loss: 0.0026 - acc: 0.9987
+3s - loss: 0.0026 - acc: 0.9983
 Epoch 23/100
-3s - loss: 0.0022 - acc: 0.9989
+3s - loss: 0.0022 - acc: 0.9984
 Epoch 24/100
-3s - loss: 0.0153 - acc: 0.9970
+3s - loss: 0.0024 - acc: 0.9984
 Epoch 25/100
-3s - loss: 0.0019 - acc: 0.9990
+3s - loss: 0.0017 - acc: 0.9986
 Epoch 26/100
-3s - loss: 0.0021 - acc: 0.9988
+3s - loss: 0.0015 - acc: 0.9986
 Epoch 27/100
-3s - loss: 0.0018 - acc: 0.9990
+3s - loss: 0.0019 - acc: 0.9985
 Epoch 28/100
-3s - loss: 0.0017 - acc: 0.9989
+3s - loss: 0.0017 - acc: 0.9985
 Epoch 29/100
-3s - loss: 0.0014 - acc: 0.9990
+3s - loss: 0.0012 - acc: 0.9986
 Epoch 30/100
-3s - loss: 0.0015 - acc: 0.9990
+3s - loss: 0.0014 - acc: 0.9985
 Epoch 31/100
-3s - loss: 0.0013 - acc: 0.9990
+3s - loss: 0.0011 - acc: 0.9987
 Epoch 32/100
-3s - loss: 0.0015 - acc: 0.9989
+3s - loss: 6.1612e-04 - acc: 0.9988
 Epoch 33/100
-3s - loss: 8.8946e-04 - acc: 0.9991
+3s - loss: 7.8934e-04 - acc: 0.9987
 Epoch 34/100
-3s - loss: 9.3414e-04 - acc: 0.9990
+3s - loss: 0.0012 - acc: 0.9986
 Epoch 35/100
-3s - loss: 7.2454e-04 - acc: 0.9991
+3s - loss: 0.0011 - acc: 0.9986
 Epoch 36/100
-3s - loss: 0.0013 - acc: 0.9991
+3s - loss: 4.0646e-04 - acc: 0.9989
 Epoch 37/100
-3s - loss: 0.0010 - acc: 0.9991
+3s - loss: 8.0293e-04 - acc: 0.9987
 Epoch 38/100
-3s - loss: 9.5242e-04 - acc: 0.9991
+3s - loss: 6.0313e-04 - acc: 0.9988
 Epoch 39/100
-3s - loss: 4.7781e-04 - acc: 0.9993
+3s - loss: 5.5306e-04 - acc: 0.9987
 Epoch 40/100
-3s - loss: 9.4347e-04 - acc: 0.9991
+3s - loss: 6.2613e-04 - acc: 0.9987
 Epoch 41/100
-3s - loss: 7.6693e-04 - acc: 0.9992
+3s - loss: 0.0010 - acc: 0.9986
 Epoch 42/100
-3s - loss: 0.0011 - acc: 0.9991
-Epoch 43/100
-3s - loss: 3.9865e-04 - acc: 0.9992
-Epoch 44/100
-3s - loss: 5.0165e-04 - acc: 0.9992
-Epoch 45/100
-3s - loss: 3.7810e-04 - acc: 0.9993
-Epoch 46/100
-3s - loss: 4.9352e-04 - acc: 0.9992
-Epoch 47/100
-3s - loss: 5.3275e-04 - acc: 0.9992
-Epoch 48/100
-3s - loss: 4.8253e-04 - acc: 0.9992
-Epoch 49/100
-3s - loss: 4.0691e-04 - acc: 0.9992
-Epoch 50/100
-3s - loss: 3.4159e-04 - acc: 0.9993
-Epoch 51/100
-3s - loss: 3.6042e-04 - acc: 0.9992
-Epoch 52/100
-3s - loss: 6.4208e-04 - acc: 0.9992
-Epoch 53/100
-3s - loss: 3.0934e-04 - acc: 0.9993
-Epoch 54/100
-3s - loss: 3.8375e-04 - acc: 0.9992
-Epoch 55/100
-3s - loss: 5.1955e-04 - acc: 0.9992
-Epoch 56/100
-3s - loss: 4.6840e-04 - acc: 0.9992
-Epoch 57/100
-3s - loss: 6.0825e-04 - acc: 0.9993
-Epoch 58/100
-3s - loss: 5.2914e-04 - acc: 0.9992
-Epoch 59/100
-3s - loss: 3.6569e-04 - acc: 0.9992
-*** Elapsed time: 0:04:26.586774
-{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.67549668874173, 'baseline': 33.6644591611479}
+3s - loss: 4.4888e-04 - acc: 0.9988
+{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 99.28825622775801, 'baseline': 28.944246737841045}
 ** Start run 8
 ** Compile model
 ** Train model
 Epoch 1/100
-3s - loss: 2.4075 - acc: 0.2628
+3s - loss: 2.4151 - acc: 0.2582
 Epoch 2/100
-3s - loss: 1.5312 - acc: 0.4798
+3s - loss: 1.5544 - acc: 0.4685
 Epoch 3/100
-3s - loss: 0.9231 - acc: 0.6961
+3s - loss: 0.9301 - acc: 0.6901
 Epoch 4/100
-3s - loss: 0.5338 - acc: 0.8322
+3s - loss: 0.5256 - acc: 0.8346
 Epoch 5/100
-3s - loss: 0.3112 - acc: 0.9100
+3s - loss: 0.3026 - acc: 0.9142
 Epoch 6/100
-3s - loss: 0.1810 - acc: 0.9516
+3s - loss: 0.1751 - acc: 0.9545
 Epoch 7/100
-3s - loss: 0.1138 - acc: 0.9702
+3s - loss: 0.1057 - acc: 0.9739
 Epoch 8/100
-3s - loss: 0.0746 - acc: 0.9811
+3s - loss: 0.0698 - acc: 0.9833
 Epoch 9/100
-3s - loss: 0.0488 - acc: 0.9878
+3s - loss: 0.0458 - acc: 0.9896
 Epoch 10/100
-3s - loss: 0.0346 - acc: 0.9911
+3s - loss: 0.0320 - acc: 0.9924
 Epoch 11/100
-3s - loss: 0.0251 - acc: 0.9935
+3s - loss: 0.0226 - acc: 0.9949
 Epoch 12/100
-3s - loss: 0.0186 - acc: 0.9950
+3s - loss: 0.0164 - acc: 0.9961
 Epoch 13/100
-3s - loss: 0.0144 - acc: 0.9957
+3s - loss: 0.0137 - acc: 0.9968
 Epoch 14/100
-3s - loss: 0.0112 - acc: 0.9967
+3s - loss: 0.0112 - acc: 0.9971
 Epoch 15/100
-3s - loss: 0.0084 - acc: 0.9972
+3s - loss: 0.0073 - acc: 0.9982
 Epoch 16/100
-3s - loss: 0.0072 - acc: 0.9975
+3s - loss: 0.0071 - acc: 0.9980
 Epoch 17/100
-3s - loss: 0.0059 - acc: 0.9979
+3s - loss: 0.0053 - acc: 0.9987
 Epoch 18/100
-3s - loss: 0.0052 - acc: 0.9978
+3s - loss: 0.0047 - acc: 0.9986
 Epoch 19/100
-3s - loss: 0.0045 - acc: 0.9980
+3s - loss: 0.0039 - acc: 0.9988
 Epoch 20/100
-3s - loss: 0.0038 - acc: 0.9981
+3s - loss: 0.0032 - acc: 0.9991
 Epoch 21/100
-3s - loss: 0.0031 - acc: 0.9983
+3s - loss: 0.0025 - acc: 0.9992
 Epoch 22/100
-3s - loss: 0.0026 - acc: 0.9985
+3s - loss: 0.0028 - acc: 0.9992
 Epoch 23/100
-3s - loss: 0.0028 - acc: 0.9984
+3s - loss: 0.0025 - acc: 0.9991
 Epoch 24/100
-3s - loss: 0.0022 - acc: 0.9986
+3s - loss: 0.0022 - acc: 0.9992
 Epoch 25/100
-3s - loss: 0.0020 - acc: 0.9986
+3s - loss: 0.0016 - acc: 0.9993
 Epoch 26/100
-3s - loss: 0.0022 - acc: 0.9985
+3s - loss: 0.0017 - acc: 0.9993
 Epoch 27/100
-3s - loss: 0.0017 - acc: 0.9986
+3s - loss: 0.0011 - acc: 0.9995
 Epoch 28/100
-3s - loss: 0.0016 - acc: 0.9986
+3s - loss: 9.0803e-04 - acc: 0.9995
 Epoch 29/100
-3s - loss: 0.0014 - acc: 0.9987
+3s - loss: 0.0018 - acc: 0.9992
 Epoch 30/100
-3s - loss: 0.0015 - acc: 0.9986
+3s - loss: 0.0013 - acc: 0.9994
 Epoch 31/100
-3s - loss: 0.0014 - acc: 0.9986
+3s - loss: 0.0013 - acc: 0.9994
 Epoch 32/100
-3s - loss: 9.1112e-04 - acc: 0.9989
+3s - loss: 0.0011 - acc: 0.9995
 Epoch 33/100
-3s - loss: 0.0011 - acc: 0.9987
+3s - loss: 9.3110e-04 - acc: 0.9994
 Epoch 34/100
-3s - loss: 0.0013 - acc: 0.9987
+3s - loss: 8.5464e-04 - acc: 0.9995
 Epoch 35/100
-3s - loss: 8.6242e-04 - acc: 0.9988
+3s - loss: 0.0011 - acc: 0.9994
 Epoch 36/100
-3s - loss: 8.8235e-04 - acc: 0.9988
+3s - loss: 8.1267e-04 - acc: 0.9995
 Epoch 37/100
-3s - loss: 7.8318e-04 - acc: 0.9988
+3s - loss: 5.8026e-04 - acc: 0.9996
 Epoch 38/100
-3s - loss: 9.7152e-04 - acc: 0.9988
+3s - loss: 8.5306e-04 - acc: 0.9995
 Epoch 39/100
-3s - loss: 9.6837e-04 - acc: 0.9988
+3s - loss: 7.1393e-04 - acc: 0.9996
 Epoch 40/100
-3s - loss: 9.2355e-04 - acc: 0.9988
+3s - loss: 8.5162e-04 - acc: 0.9995
 Epoch 41/100
-3s - loss: 8.7780e-04 - acc: 0.9988
+3s - loss: 4.9059e-04 - acc: 0.9996
 Epoch 42/100
-3s - loss: 6.7034e-04 - acc: 0.9988
+3s - loss: 6.0710e-04 - acc: 0.9996
 Epoch 43/100
-3s - loss: 7.3333e-04 - acc: 0.9988
+3s - loss: 9.6704e-04 - acc: 0.9995
 Epoch 44/100
-3s - loss: 6.8222e-04 - acc: 0.9988
+3s - loss: 6.7751e-04 - acc: 0.9996
 Epoch 45/100
-3s - loss: 6.3054e-04 - acc: 0.9989
+3s - loss: 4.7459e-04 - acc: 0.9996
 Epoch 46/100
-3s - loss: 4.3154e-04 - acc: 0.9989
+3s - loss: 3.5788e-04 - acc: 0.9997
 Epoch 47/100
-3s - loss: 4.7090e-04 - acc: 0.9989
+3s - loss: 3.8753e-04 - acc: 0.9996
 Epoch 48/100
-3s - loss: 5.3678e-04 - acc: 0.9989
+3s - loss: 4.0155e-04 - acc: 0.9996
 Epoch 49/100
-3s - loss: 3.6291e-04 - acc: 0.9989
+3s - loss: 3.3116e-04 - acc: 0.9996
 Epoch 50/100
-3s - loss: 7.7716e-04 - acc: 0.9989
+3s - loss: 4.2267e-04 - acc: 0.9997
 Epoch 51/100
-3s - loss: 5.3299e-04 - acc: 0.9989
+3s - loss: 9.4539e-04 - acc: 0.9995
 Epoch 52/100
-3s - loss: 4.0628e-04 - acc: 0.9990
+3s - loss: 3.3633e-04 - acc: 0.9996
 Epoch 53/100
-3s - loss: 2.5353e-04 - acc: 0.9990
+3s - loss: 2.9349e-04 - acc: 0.9996
 Epoch 54/100
-3s - loss: 3.7835e-04 - acc: 0.9989
+3s - loss: 3.3964e-04 - acc: 0.9997
 Epoch 55/100
-3s - loss: 3.9928e-04 - acc: 0.9990
+3s - loss: 4.4715e-04 - acc: 0.9996
 Epoch 56/100
-3s - loss: 3.3102e-04 - acc: 0.9990
+3s - loss: 5.8252e-04 - acc: 0.9996
 Epoch 57/100
-3s - loss: 2.7117e-04 - acc: 0.9990
+3s - loss: 7.0139e-04 - acc: 0.9996
 Epoch 58/100
-3s - loss: 4.9386e-04 - acc: 0.9990
+3s - loss: 2.3376e-04 - acc: 0.9997
 Epoch 59/100
-3s - loss: 7.5501e-04 - acc: 0.9988
-*** Elapsed time: 0:04:29.580842
-{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.8607594936709, 'baseline': 30.253164556962027}
+3s - loss: 3.5164e-04 - acc: 0.9996
+Epoch 60/100
+3s - loss: 1.9814e-04 - acc: 0.9997
+Epoch 61/100
+3s - loss: 1.9084e-04 - acc: 0.9997
+Epoch 62/100
+3s - loss: 4.1522e-04 - acc: 0.9996
+Epoch 63/100
+3s - loss: 5.4787e-04 - acc: 0.9997
+Epoch 64/100
+3s - loss: 2.3161e-04 - acc: 0.9997
+Epoch 65/100
+3s - loss: 5.1756e-04 - acc: 0.9996
+Epoch 66/100
+3s - loss: 2.1263e-04 - acc: 0.9997
+Epoch 67/100
+3s - loss: 5.7469e-04 - acc: 0.9996
+{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 99.1504854368932, 'baseline': 29.004854368932037}
 ** Start run 9
 ** Compile model
 ** Train model
 Epoch 1/100
-3s - loss: 2.3873 - acc: 0.2701
+3s - loss: 2.3738 - acc: 0.2753
 Epoch 2/100
-3s - loss: 1.5498 - acc: 0.4733
+3s - loss: 1.4670 - acc: 0.5026
 Epoch 3/100
-3s - loss: 0.9330 - acc: 0.6892
+3s - loss: 0.8841 - acc: 0.7079
 Epoch 4/100
-3s - loss: 0.5447 - acc: 0.8280
+3s - loss: 0.5018 - acc: 0.8445
 Epoch 5/100
-3s - loss: 0.3226 - acc: 0.9067
+3s - loss: 0.2926 - acc: 0.9161
 Epoch 6/100
-3s - loss: 0.1883 - acc: 0.9503
+3s - loss: 0.1664 - acc: 0.9554
 Epoch 7/100
-3s - loss: 0.1159 - acc: 0.9730
+3s - loss: 0.1154 - acc: 0.9699
 Epoch 8/100
-3s - loss: 0.0744 - acc: 0.9826
+3s - loss: 0.0769 - acc: 0.9802
 Epoch 9/100
-3s - loss: 0.0503 - acc: 0.9883
+3s - loss: 0.0557 - acc: 0.9850
 Epoch 10/100
-3s - loss: 0.0355 - acc: 0.9922
+3s - loss: 0.0402 - acc: 0.9892
 Epoch 11/100
-3s - loss: 0.0261 - acc: 0.9943
+3s - loss: 0.0320 - acc: 0.9913
 Epoch 12/100
-3s - loss: 0.0194 - acc: 0.9957
+3s - loss: 0.0261 - acc: 0.9921
 Epoch 13/100
-3s - loss: 0.0142 - acc: 0.9968
+3s - loss: 0.0144 - acc: 0.9932
 Epoch 14/100
-3s - loss: 0.0120 - acc: 0.9973
+3s - loss: 0.0112 - acc: 0.9958
 Epoch 15/100
-3s - loss: 0.0098 - acc: 0.9975
+3s - loss: 0.0197 - acc: 0.9948
 Epoch 16/100
-3s - loss: 0.0080 - acc: 0.9981
+3s - loss: 0.0164 - acc: 0.9949
 Epoch 17/100
-3s - loss: 0.0069 - acc: 0.9982
+3s - loss: 0.0139 - acc: 0.9951
 Epoch 18/100
-3s - loss: 0.0053 - acc: 0.9988
+3s - loss: 0.0152 - acc: 0.9954
 Epoch 19/100
-3s - loss: 0.0045 - acc: 0.9989
+3s - loss: 0.0124 - acc: 0.9958
 Epoch 20/100
-3s - loss: 0.0042 - acc: 0.9988
-Epoch 21/100
-3s - loss: 0.0039 - acc: 0.9990
-Epoch 22/100
-3s - loss: 0.0033 - acc: 0.9991
-Epoch 23/100
-3s - loss: 0.0030 - acc: 0.9991
-Epoch 24/100
-3s - loss: 0.0025 - acc: 0.9993
-Epoch 25/100
-3s - loss: 0.0023 - acc: 0.9993
-Epoch 26/100
-3s - loss: 0.0019 - acc: 0.9994
-Epoch 27/100
-3s - loss: 0.0020 - acc: 0.9995
-Epoch 28/100
-3s - loss: 0.0017 - acc: 0.9994
-Epoch 29/100
-3s - loss: 0.0017 - acc: 0.9996
-Epoch 30/100
-3s - loss: 0.0010 - acc: 0.9997
-Epoch 31/100
-3s - loss: 0.0013 - acc: 0.9996
-Epoch 32/100
-3s - loss: 8.8318e-04 - acc: 0.9998
-Epoch 33/100
-3s - loss: 0.0012 - acc: 0.9995
-Epoch 34/100
-3s - loss: 0.0013 - acc: 0.9996
-Epoch 35/100
-3s - loss: 8.9917e-04 - acc: 0.9997
-Epoch 36/100
-3s - loss: 9.2650e-04 - acc: 0.9997
-Epoch 37/100
-3s - loss: 9.0749e-04 - acc: 0.9996
-Epoch 38/100
-3s - loss: 9.6995e-04 - acc: 0.9997
-*** Elapsed time: 0:03:13.309142
-{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 99.09706546275395, 'baseline': 27.878103837471784}
+3s - loss: 0.0118 - acc: 0.9956
+{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.81376037959669, 'baseline': 30.36773428232503}
 ** Start run 10
 ** Compile model
 ** Train model
 Epoch 1/100
-3s - loss: 2.4026 - acc: 0.2639
+3s - loss: 2.3720 - acc: 0.2831
 Epoch 2/100
-3s - loss: 1.4439 - acc: 0.5179
+3s - loss: 1.3742 - acc: 0.5443
 Epoch 3/100
-3s - loss: 0.8442 - acc: 0.7205
+3s - loss: 0.7824 - acc: 0.7447
 Epoch 4/100
-3s - loss: 0.4867 - acc: 0.8498
+3s - loss: 0.4512 - acc: 0.8612
 Epoch 5/100
-3s - loss: 0.2830 - acc: 0.9192
+3s - loss: 0.2611 - acc: 0.9271
 Epoch 6/100
-3s - loss: 0.1659 - acc: 0.9560
+3s - loss: 0.1534 - acc: 0.9599
 Epoch 7/100
-3s - loss: 0.1018 - acc: 0.9747
+3s - loss: 0.0945 - acc: 0.9774
 Epoch 8/100
-3s - loss: 0.0655 - acc: 0.9844
+3s - loss: 0.0629 - acc: 0.9843
 Epoch 9/100
-3s - loss: 0.0442 - acc: 0.9894
+3s - loss: 0.0430 - acc: 0.9894
 Epoch 10/100
-3s - loss: 0.0319 - acc: 0.9921
+3s - loss: 0.0307 - acc: 0.9925
 Epoch 11/100
-3s - loss: 0.0229 - acc: 0.9943
+3s - loss: 0.0226 - acc: 0.9939
 Epoch 12/100
-3s - loss: 0.0174 - acc: 0.9954
+3s - loss: 0.0168 - acc: 0.9956
 Epoch 13/100
-3s - loss: 0.0140 - acc: 0.9961
+3s - loss: 0.0138 - acc: 0.9960
 Epoch 14/100
-3s - loss: 0.0111 - acc: 0.9967
+3s - loss: 0.0201 - acc: 0.9952
 Epoch 15/100
-3s - loss: 0.0084 - acc: 0.9973
+3s - loss: 0.0091 - acc: 0.9971
 Epoch 16/100
-3s - loss: 0.0085 - acc: 0.9975
+3s - loss: 0.0064 - acc: 0.9978
 Epoch 17/100
-3s - loss: 0.0052 - acc: 0.9984
+3s - loss: 0.0061 - acc: 0.9980
 Epoch 18/100
-3s - loss: 0.0048 - acc: 0.9981
+3s - loss: 0.0057 - acc: 0.9977
 Epoch 19/100
-3s - loss: 0.0042 - acc: 0.9984
+3s - loss: 0.0046 - acc: 0.9981
 Epoch 20/100
 3s - loss: 0.0038 - acc: 0.9983
 Epoch 21/100
 3s - loss: 0.0031 - acc: 0.9985
 Epoch 22/100
-3s - loss: 0.0027 - acc: 0.9986
+3s - loss: 0.0029 - acc: 0.9986
 Epoch 23/100
-3s - loss: 0.0024 - acc: 0.9987
+3s - loss: 0.0030 - acc: 0.9986
 Epoch 24/100
 3s - loss: 0.0024 - acc: 0.9987
 Epoch 25/100
-3s - loss: 0.0022 - acc: 0.9987
+3s - loss: 0.0028 - acc: 0.9986
 Epoch 26/100
-3s - loss: 0.0020 - acc: 0.9987
+3s - loss: 0.0021 - acc: 0.9987
 Epoch 27/100
-3s - loss: 0.0018 - acc: 0.9989
+3s - loss: 0.0020 - acc: 0.9988
 Epoch 28/100
-3s - loss: 0.0016 - acc: 0.9989
+3s - loss: 0.0016 - acc: 0.9988
 Epoch 29/100
-3s - loss: 0.0016 - acc: 0.9989
+3s - loss: 0.0019 - acc: 0.9988
 Epoch 30/100
 3s - loss: 0.0013 - acc: 0.9990
 Epoch 31/100
-3s - loss: 0.0013 - acc: 0.9989
+3s - loss: 0.0015 - acc: 0.9989
 Epoch 32/100
-3s - loss: 0.0010 - acc: 0.9990
+3s - loss: 9.7253e-04 - acc: 0.9990
 Epoch 33/100
-3s - loss: 8.6341e-04 - acc: 0.9990
+3s - loss: 0.0012 - acc: 0.9989
 Epoch 34/100
-3s - loss: 9.7220e-04 - acc: 0.9990
+3s - loss: 0.0011 - acc: 0.9989
 Epoch 35/100
-3s - loss: 0.0012 - acc: 0.9990
+3s - loss: 9.6505e-04 - acc: 0.9989
 Epoch 36/100
-3s - loss: 9.6371e-04 - acc: 0.9990
-Epoch 37/100
-3s - loss: 7.6047e-04 - acc: 0.9991
-Epoch 38/100
-3s - loss: 6.4179e-04 - acc: 0.9991
-Epoch 39/100
 3s - loss: 0.0010 - acc: 0.9990
+Epoch 37/100
+3s - loss: 7.0890e-04 - acc: 0.9991
+Epoch 38/100
+3s - loss: 9.2996e-04 - acc: 0.9991
+Epoch 39/100
+3s - loss: 7.5706e-04 - acc: 0.9991
 Epoch 40/100
-3s - loss: 7.4046e-04 - acc: 0.9990
+3s - loss: 8.2434e-04 - acc: 0.9990
 Epoch 41/100
-3s - loss: 7.0116e-04 - acc: 0.9991
+3s - loss: 8.5274e-04 - acc: 0.9990
 Epoch 42/100
-3s - loss: 3.9139e-04 - acc: 0.9992
+3s - loss: 9.3787e-04 - acc: 0.9990
 Epoch 43/100
-3s - loss: 3.5054e-04 - acc: 0.9991
+3s - loss: 5.6087e-04 - acc: 0.9991
 Epoch 44/100
-3s - loss: 7.3589e-04 - acc: 0.9991
+3s - loss: 8.1414e-04 - acc: 0.9991
 Epoch 45/100
-3s - loss: 5.7687e-04 - acc: 0.9991
+3s - loss: 6.6665e-04 - acc: 0.9991
 Epoch 46/100
-3s - loss: 4.6467e-04 - acc: 0.9991
+3s - loss: 4.9045e-04 - acc: 0.9992
 Epoch 47/100
-3s - loss: 9.5788e-04 - acc: 0.9990
+3s - loss: 8.4014e-04 - acc: 0.9990
 Epoch 48/100
-3s - loss: 5.3766e-04 - acc: 0.9992
+3s - loss: 5.1485e-04 - acc: 0.9991
 Epoch 49/100
-3s - loss: 3.6151e-04 - acc: 0.9991
-*** Elapsed time: 0:03:52.062431
-{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.30124575311439, 'baseline': 29.44507361268403}
+3s - loss: 6.4639e-04 - acc: 0.9991
+Epoch 50/100
+3s - loss: 3.7733e-04 - acc: 0.9992
+Epoch 51/100
+3s - loss: 2.6006e-04 - acc: 0.9992
+Epoch 52/100
+3s - loss: 6.8948e-04 - acc: 0.9991
+Epoch 53/100
+3s - loss: 6.1884e-04 - acc: 0.9991
+Epoch 54/100
+3s - loss: 4.3192e-04 - acc: 0.9991
+Epoch 55/100
+3s - loss: 4.9758e-04 - acc: 0.9991
+Epoch 56/100
+3s - loss: 3.3404e-04 - acc: 0.9991
+Epoch 57/100
+3s - loss: 2.3213e-04 - acc: 0.9992
+Epoch 58/100
+3s - loss: 4.4778e-04 - acc: 0.9992
+Epoch 59/100
+3s - loss: 3.3498e-04 - acc: 0.9992
+Epoch 60/100
+3s - loss: 5.8367e-04 - acc: 0.9991
+Epoch 61/100
+3s - loss: 4.6103e-04 - acc: 0.9991
+Epoch 62/100
+3s - loss: 4.0724e-04 - acc: 0.9991
+Epoch 63/100
+3s - loss: 4.7578e-04 - acc: 0.9991
+{'verbose': False, 'datafile': 'data/maltese.dat.gz', 'spaces': False, 'train': None, 'cv': 10, 'saveModel': None, 'loadWeights': None, 'saveWeights': None, 'd_context': 4, 'd_dense': 256, 'd_rnn': 256, 'dropout': 0.2, 'epochs': 100, 'batch_size': 128, 'tag': '>>>>>', 'score': 98.65319865319864, 'baseline': 28.28282828282828}
