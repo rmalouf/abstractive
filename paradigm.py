@@ -110,10 +110,6 @@ class Paradigms(object):
                 for _ in range(B-1):
                     beam[j].append(Item(score=0.0, word=cand))
 
-            #for xx in beam[0]:
-            #    print('%10.7f'%xx.score,''.join(self.char_decode[yy] for yy in np.argmax(xx.word, axis=1)))
-            #print()
-
             x2 = np.zeros((N, B, self.maxlen, self.C), dtype=np.bool)
             for i in range(self.maxlen-1):
                 for j in range(N):
@@ -141,19 +137,15 @@ class Paradigms(object):
                                     shufflein(new_beam[j], Item(score=p, word=t), B)
                 beam = new_beam
 
-                #for xx in beam[0]:
-                #    print('%10.7f'%xx.score,''.join(self.char_decode[yy] for yy in np.argmax(xx.word, axis=1)))
-                #print()
-
-            for i, form in enumerate(batch['form']):
+            for i, row in enumerate(batch.itertuples(index=False)):
                 word = [self.char_decode[c] for c in np.argmax(beam[i][0].word, axis=1)]
                 try:
                     word = word[(rindex(word, '<') + 1):word.index('>')]
                 except ValueError:
                     pass
                 total += 1
-                #print(''.join(word),''.join(form))
-                if word == form:
+                ### print('\t'.join([''.join(word),''.join(row.form),row.lexeme,row.features,str(word==row.form)]))
+                if word == row.form:
                     corr += 1
 
             if kwargs['verbose']:
@@ -291,10 +283,6 @@ if __name__ == '__main__':
                    help='size of recurrent layer')
     model.add_argument('--dropout', metavar='P', type=float, default=0.0,
                        help='dropout percentage for recurrent layer')
-    #model.add_argument('--n_rnn', metavar='N', type=int, default=1,
-    #               help='number of recurrent layers')
-    #model.add_argument('--rnn', metavar='TYPE', choices=['SRN', 'LSTM'], default='LSTM',
-    #               help='type of recurrent layers (SRN or LSTM)')
 
     train = parser.add_argument_group('training hyperparameters', description='xx')
     train.add_argument('--epochs', metavar='N', type=int, default=15,
@@ -333,7 +321,7 @@ if __name__ == '__main__':
         index = np.array([np.random.random() > float(args['train']) for i in range(len(data))], dtype=np.bool)
         args['score'] = paradigms(data, index, **args)
         if not data['lemma'].isnull().any():
-            args['baseline'] = baseline(data, index == k, **args)
+            args['baseline'] = baseline(data, index, **args)
         else:
             args['baseline'] = 0.0
         print(args)
