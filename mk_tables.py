@@ -43,3 +43,18 @@ for datafile in glob('logs/output.*'):
 table2 = pd.DataFrame(sorted(table2, key=lambda d:d['datafile']))
 table2 = table2[['datafile','baseline', 'accuracy']]
 print(table2.groupby('datafile').agg([np.mean, np.std]).to_latex(float_format='%.2f'))
+
+## table 2 : reverse experimental results
+
+table2 = [ ]
+for datafile in glob('logs-rev/output.*'):
+    for line in open(datafile,'rt'):
+        if '>>>>>' in line:
+            line = eval(line)
+            row = {'datafile':line['datafile'],
+                   'baseline':line['baseline'],
+                   'accuracy':line['score']}
+            table2.append(row)
+table2 = pd.DataFrame(sorted(table2, key=lambda d:d['datafile']))
+table2 = table2[['datafile','baseline', 'accuracy']]
+print(table2.groupby('datafile').agg([np.mean, np.std]).to_latex(float_format='%.2f'))
