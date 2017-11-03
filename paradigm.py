@@ -5,6 +5,7 @@
 import argparse
 from collections import defaultdict, Counter, namedtuple
 from functools import reduce
+from math import ceil
 from toolz import pipe
 
 import regex as re
@@ -12,7 +13,7 @@ import pandas as pd
 import numpy as np
 
 from keras.models import Model
-from keras.layers import Input, Dense, RepeatVector, TimeDistributed, Merge
+from keras.layers import Input, Dense, RepeatVector, TimeDistributed, concatenate
 from keras.layers.recurrent import LSTM
 from keras.utils.generic_utils import Progbar
 from keras.callbacks import EarlyStopping
@@ -209,12 +210,14 @@ def paradigms(data, index, **kwargs):
     context = pipe(context_input,
                    TimeDistributed(Dense(kwargs['d_context'], activation='linear')))
 
-    merged = Merge(mode='concat')([cell, context])
+    merged = concatenate([cell, context])
     rnn = pipe(merged,
-               LSTM(kwargs['d_rnn'], return_sequences=False, unroll=True, consume_less='gpu', dropout_U=kwargs['dropout']),
+               LSTM(kwargs['d_rnn'], 
+                    return_sequences=False, 
+                    recurrent_dropout=kwargs['dropout']),
                Dense(P.C, activation='softmax'))
 
-    model = Model(input=[cell_input, context_input], output=[rnn])
+    model = Model(inputs=[cell_input, context_input], outputs=[rnn])
     model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
     if kwargs['saveModel']:
@@ -234,7 +237,10 @@ def paradigms(data, index, **kwargs):
         else:
             v = 2
         fit = model.fit_generator(P.generator(train, batch_size=kwargs['batch_size']),
-                                  P.N(train), nb_epoch=kwargs['epochs'], verbose=v, pickle_safe=True,
+                                  steps_per_epoch=ceil(P.N(train)/kwargs['batch_size']), 
+                                  epochs=kwargs['epochs'], 
+                                  verbose=v, 
+                                  use_multiprocessing=True,
                                   callbacks=[EarlyStopping(monitor='loss', patience=5)])
 
     if kwargs['saveWeights']:
